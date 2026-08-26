@@ -20,6 +20,8 @@ för Team Volt, hösten 2026.
 
 ### Installation och start
 
+Byt ut innehållet i example.env till deras korrekta värden och namnge filen till .env
+
 Installera projektets dependencies och starta både frontend och mock API:
 
 ```bash
