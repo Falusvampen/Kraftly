@@ -34,12 +34,12 @@ Mock API körs på <http://localhost:4000/>.
 
 ## Tillgängliga kommandon
 
-| Kommando | Beskrivning |
-| --- | --- |
-| `npm run start` | Startar Vite och mock API samtidigt. |
-| `npm run dev` | Startar endast Vites utvecklingsserver. |
-| `npm run api` | Startar endast mock API. |
-| `npm run build` | Bygger frontend för produktion. |
+| Kommando          | Beskrivning                             |
+| ----------------- | --------------------------------------- |
+| `npm run start`   | Startar Vite och mock API samtidigt.    |
+| `npm run dev`     | Startar endast Vites utvecklingsserver. |
+| `npm run api`     | Startar endast mock API.                |
+| `npm run build`   | Bygger frontend för produktion.         |
 | `npm run preview` | Förhandsvisar produktionsbygget lokalt. |
 
 ## Teknik

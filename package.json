@@ -7,7 +7,11 @@
     "start": "concurrently \"npm run api\" \"npm run dev\"",
     "build": "vite build",
     "preview": "vite preview",
-    "api": "node mock-api/server.js"
+    "api": "node mock-api/server.js",
+    "lint": "eslint",
+    "format": "prettier . --write --ignore-unknown",
+    "format:check": "prettier . --check --ignore-unknown",
+    "prepare": "husky"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
@@ -18,13 +22,27 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "concurrently": "^10.0.5",
+    "eslint": "^10.9.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.11.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.4.1",
+    "prettier": "3.9.6",
     "vite": "^6.0.7"
   },
   "allowScripts": {
     "esbuild@0.25.12": true,
     "fsevents@2.3.3": true,
     "vue-demi@0.14.10": true
+  },
+  "lint-staged": {
+    "**/*": [
+      "npm run lint",
+      "npm run format"
+    ]
   }
 }
