@@ -7,7 +7,9 @@
     "start": "concurrently \"npm run api\" \"npm run dev\"",
     "build": "vite build",
     "preview": "vite preview",
-    "api": "node mock-api/server.js"
+    "api": "node mock-api/server.js",
+		"test": "vitest",
+		"test:run": "vitest run"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
@@ -20,7 +22,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "concurrently": "^10.0.5",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "vitest": "^4.1.11"
   },
   "allowScripts": {
     "esbuild@0.25.12": true,
