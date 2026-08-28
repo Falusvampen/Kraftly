@@ -15,7 +15,8 @@
     "format:check": "prettier . --check --ignore-unknown",
     "prepare": "husky",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "e2e:cy": "start-server-and-test \"npm run api\" http://localhost:4000/api/user \"npm run dev\" http://localhost:5173 \"cypress run\""
   },
   "dependencies": {
     "chart.js": "^4.4.7",
@@ -29,13 +30,16 @@
     "@eslint/js": "^10.0.1",
     "@vitejs/plugin-vue": "^5.2.1",
     "concurrently": "^10.0.5",
+    "cypress": "^15.21.1",
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-cypress": "^7.0.1",
     "eslint-plugin-vue": "^10.10.0",
     "globals": "^17.11.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
     "prettier": "3.9.6",
+    "start-server-and-test": "^3.0.12",
     "vite": "^6.0.7",
     "vitest": "^4.1.11"
   },
