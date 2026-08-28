@@ -1,69 +1,21 @@
-## Boiler room - Daily Log Team B
+## 2026-08-28 · Boiler Room 1
 
-**Datum** 2026-08-28
-
-**Tech-lead**
-Tom Almli
-
-**Deltagare**
-Axel Wallström
-Fabian Yousif
-Louise Rylander
-Tom Almli
-
-## 1.Stand-up
-
-**Plan för boilerroom**
-
-| Namn   | Vad ska jag göra idag?                              | Hinder? |
-| ------ | --------------------------------------------------- | ------- |
-| Axel   | Test- Validate MoveForm                             |         |
-| Fabian | Test- Consumptionschart, Es-lint + prettier congfig |         |
-| Louise | Test- Statuschip                                    |         |
-| Tom    | Test- Index.js routing                              |         |
-
-**Dagens gemensamma mål:**
-
-- [M1]
-- [E2E - Cypress]
-- [ ]
-- [ ]
-
----
-
-## 2. Under arbetet
-
-**Vad vi fokuserade på:**
+Gjort:
 
 - M1- dela upp testerna inför inlämning tis 1/9, börja jobba med dessa.
 - Följa planen för boilerroom som vi fick i Slack i morse.
-- Testat Cypress
+- E2E med Cypress som vi beslutade att använda.
 
-**Beslut eller ändringar i planering:**
--
+Grönt:
+https://github.com/Falusvampen/Kraftly/pull/28
+https://github.com/Falusvampen/Kraftly/pull/29
+https://github.com/Falusvampen/Kraftly/pull/31
+https://github.com/Falusvampen/Kraftly/pull/32
+https://github.com/Falusvampen/Kraftly/pull/33
 
-**Nya insikter eller problem:**
--
-
----
-
-## 3. Review & Reflektion
-
-**Reflektera gemensamt i slutet av dagen:**
-
-- Vad fungerade bra idag?
-- Vad var utmanande?
-- Vad lärde vi oss?
-- Vad ska vi tänka på till nästa gång?
-- **Vad vill vi ta upp med utbildaren?**
-
----
-
-## 4. Övrigt / Anteckningar
-
--
-
----
+Kvar till M1-taggen tisdag: Testerna
+E2E: Vi valde Cypress· smoke + mockat test gröna: ja
+Fastnat på: Vi har fastnat på vissa tester som vi arbetar vidare med.
 
 # Logg - 2026-08-24
 
