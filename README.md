@@ -75,3 +75,11 @@ på möten och inte i direktmeddelanden.
 Tech lead: Tom
 
 Om något skaver tar vi upp det tidigt i Slack och ber om hjälp vid behov.
+
+## Lint regler
+
+**I konfigurationsfilen för ESLint `eslint.config.mjs` är följande bestämt:**
+
+- Bortglömda `console.log` och `alert` varnar bara. De kan inte orsaka buggar och är inte prio 1. Det är teknisk skuld som kan städas upp när tid finns.
+- Variabler med `var` och jämförelser med `==` istället för `===` är errors. De kan orsaka buggar och varken ska eller behöver finnas i koden.
+- Vue komponenter behöver inte innehålla minst två ord, det är inte nödvändigt och kan överkomplicera komponentnamn som kan beskrivas med ett ord.
