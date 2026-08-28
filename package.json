@@ -13,9 +13,9 @@
     "lint:fix": "eslint --fix",
     "format": "prettier . --write --ignore-unknown",
     "format:check": "prettier . --check --ignore-unknown",
-    "prepare": "husky"
-		"test": "vitest",
-		"test:run": "vitest run"
+    "prepare": "husky",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
@@ -36,7 +36,6 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
     "prettier": "3.9.6",
-    "vite": "^6.0.7"
     "vite": "^6.0.7",
     "vitest": "^4.1.11"
   },
