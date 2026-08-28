@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "api": "node mock-api/server.js",
     "lint": "eslint",
+    "lint:fix": "eslint --fix",
     "format": "prettier . --write --ignore-unknown",
     "format:check": "prettier . --check --ignore-unknown",
     "prepare": "husky"
@@ -41,9 +42,11 @@
     "vue-demi@0.14.10": true
   },
   "lint-staged": {
-    "**/*": [
-      "npm run lint",
-      "npm run format"
+    "*.{js,vue}": [
+      "eslint --fix"
+    ],
+    "*.{js,vue,json,css,md}": [
+      "prettier --write"
     ]
   }
 }

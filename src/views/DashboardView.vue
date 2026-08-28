@@ -55,7 +55,7 @@ const userStore = useUserStore();
 const consumptionStore = useConsumptionStore();
 
 const latestMonth = computed(() => {
-  var d = consumptionStore.data;
+  let d = consumptionStore.data;
   return d ? d.values[d.values.length - 1] : '–';
 });
 
