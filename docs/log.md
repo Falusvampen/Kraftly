@@ -2,9 +2,11 @@
 
 Gjort:
 
-- M1- dela upp testerna inför inlämning tis 1/9, börja jobba med dessa.
+- M1- dela upp testerna inför inlämning tis 1/9, började jobba med dessa.
 - Följa planen för boilerroom som vi fick i Slack i morse.
 - E2E med Cypress som vi beslutade att använda.
+- La till Eslint och Prettier att köras innan varje commit
+- Installerade Vitest
 
 Grönt:
 https://github.com/Falusvampen/Kraftly/pull/28
