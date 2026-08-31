@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/vue';
-import StatusChip from '../../src/components/StatusChip.vue'
+import StatusChip from '../components/StatusChip.vue'
 
 
 describe('StatusChip.vue', () => {
