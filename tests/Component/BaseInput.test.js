@@ -1,16 +1,22 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
 import BaseInput from '../../src/components/BaseInput.vue';
 
 describe('BaseInput.vue', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
   afterEach(() => {
     cleanup();
+    vi.useRealTimers();
   });
 
   it('renders input with correct placeholder and receives user input', async () => {
-    const user = userEvent.setup();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
+
     const { emitted } = render(BaseInput, {
       props: {
         placeholder: 'Ny adress',
