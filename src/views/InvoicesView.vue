@@ -11,7 +11,7 @@
           <td>{{ invoice.period }}</td>
           <td>{{ invoice.amount }} kr</td>
           <td>{{ invoice.due }}</td>
-          <td><span :class="['status-chip', invoice.status === 'Betald' ? 'status-betald' : 'status-obetald']">{{ invoice.status }}</span></td>
+          <td>  <StatusChip :status="invoice.status" /></td>
           <td><div class="download" @click="downloadInvoice(invoice)">Ladda ner</div></td>
         </tr>
       </table>
@@ -22,7 +22,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { fetchInvoices } from '../services/api'
-
+import StatusChip from '../components/StatusChip.vue'
 const invoices = ref([])
 
 onMounted(async () => {
