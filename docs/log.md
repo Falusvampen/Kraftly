@@ -10,6 +10,10 @@ Samtliga tester fungerar hos alla
 Kvar:
 Pusha denna log och tagga M1 efter det.
 
+Teamets reflektion:
+Vi är väldigt nöjda med flowet och samarbetet i teamet. Det är avspänt, alla lyssnar på varandra och hjälps åt.
+Testet på Statuschip är relativt enkelt och tydligt.
+
 ## 2026-08-31
 
 Gjort:
