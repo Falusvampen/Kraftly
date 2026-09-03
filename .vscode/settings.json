@@ -4,5 +4,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript", "vue"]
+  "eslint.validate": ["javascript", "vue"],
+  "files.eol": "\n"
 }
