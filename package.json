@@ -16,7 +16,8 @@
     "prepare": "husky",
     "test": "vitest",
     "test:run": "vitest run",
-    "e2e:cy": "start-server-and-test \"npm run api\" http://localhost:4000/api/user \"npm run dev\" http://localhost:5173 \"cypress run\""
+    "e2e:cy": "start-server-and-test \"npm run api\" http://localhost:4000/api/user \"npm run dev\" http://localhost:5173 \"cypress run\"",
+    "e2e:ci": "start-server-and-test \"npm run api\" http://localhost:4000/api/user \"npm run preview -- --port 5173\" http://localhost:5173 \"cypress run\""
   },
   "dependencies": {
     "chart.js": "^4.4.7",
