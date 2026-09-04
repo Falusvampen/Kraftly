@@ -28,6 +28,7 @@ jobs:
     name: 'Code Quality (Lint, Format, Unit Tests)'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           cache: ${{ inputs.use_cache != false }}
@@ -40,6 +41,7 @@ jobs:
     needs: quality
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           cache: ${{ inputs.use_cache != false }}
@@ -56,6 +58,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           cache: ${{ inputs.use_cache != false }}

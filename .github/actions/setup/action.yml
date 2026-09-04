@@ -1,5 +1,5 @@
 name: 'Setup Environment'
-description: 'Checkout, Node.js setup with optional cache, and dependency installation'
+description: 'Node.js setup with optional cache and dependency installation'
 
 inputs:
   node-version:
@@ -14,8 +14,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v4
-
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
