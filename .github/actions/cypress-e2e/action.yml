@@ -1,0 +1,29 @@
+name: 'Run Cypress E2E'
+description: 'Executes Cypress tests and uploads screenshots on failure'
+
+inputs:
+  command:
+    description: 'NPM script to run Cypress'
+    required: false
+    default: 'npm run e2e:cy'
+  artifact-retention-days:
+    description: 'Days to retain failure artifacts'
+    required: false
+    default: '7'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run Cypress tests
+      shell: bash
+      run: ${{ inputs.command }}
+
+    - name: Upload Cypress Artifacts
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: cypress-artifacts
+        path: |
+          cypress/screenshots
+          cypress/videos
+        retention-days: ${{ inputs.artifact-retention-days }}
