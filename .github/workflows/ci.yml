@@ -2,15 +2,22 @@ name: CI
 
 on:
   pull_request:
+    branches: [main]
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      use_cache:
+        description: 'Use npm cache'
+        type: boolean
+        default: true
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   VITE_API_BASE_URL: http://localhost:4000
@@ -18,48 +25,45 @@ env:
 
 jobs:
   quality:
+    name: 'Code Quality (Lint, Format, Unit Tests)'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
+          cache: ${{ inputs.use_cache != false }}
       - run: npm run lint
       - run: npm run format:check
       - run: npm run test:run
 
-  e2e:
+  build:
+    name: 'Build Verification'
     needs: quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: ./.github/actions/setup
         with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run e2e:cy
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-  build:
-    needs: [quality, e2e]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
+          cache: ${{ inputs.use_cache != false }}
       - run: npm run build
-      - uses: actions/upload-artifact@v4
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
-          retention-days: 7
+          retention-days: ${{ github.ref == 'refs/heads/main' && 7 || 1 }}
+
+  e2e:
+    name: 'E2E Tests (Cypress)'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/setup
+        with:
+          cache: ${{ inputs.use_cache != false }}
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - uses: ./.github/actions/cypress-e2e
+        with:
+          command: npm run e2e:ci
