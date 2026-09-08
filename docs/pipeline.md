@@ -92,9 +92,9 @@ Men om main mot förmodan blir röd (t.ex. vid beroendeuppdatering eller ovänta
 
 | Steg             | Utan cache | Med cache |
 | ---------------- | ---------- | --------- |
-| npm ci (quality) | 31s        | 30s       |
-| npm ci (build)   | 29s        | 28s       |
-| Hela körningen   | 2m 0s      | 02m 2s    |
+| npm ci (quality) | 31s        | 50s       |
+| npm ci (e2e)     | 41s        | 49s       |
+| npm ci (build)   | 29s        | 26s       |
 
 Skärmdumpar: …
 
