@@ -1,3 +1,5 @@
+[![CI](https://github.com/Falusvampen/Kraftly/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Falusvampen/Kraftly/actions/workflows/ci.yml)
+
 # Kraftly Mina Sidor
 
 Kundportal för Kraftlys kunder. Projektet är utvecklat av Webbmakarna AB 2026-06-30

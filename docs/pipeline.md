@@ -92,11 +92,17 @@ Men om main mot förmodan blir röd (t.ex. vid beroendeuppdatering eller ovänta
 
 | Steg             | Utan cache | Med cache |
 | ---------------- | ---------- | --------- |
-| npm ci (quality) |            |           |
-| npm ci (build)   |            |           |
-| Hela körningen   |            |           |
+| npm ci (quality) | 31s        | 30s       |
+| npm ci (build)   | 29s        | 28s       |
+| Hela körningen   | 2m 0s      | 02m 2s    |
 
 Skärmdumpar: …
+
+Direktlänk till PR:en:
+https://github.com/Falusvampen/Kraftly/pull/48
+
+![01](images/01.png)
+![02](images/02.png)
 
 ## Skärmdump linting och
 
