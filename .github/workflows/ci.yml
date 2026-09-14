@@ -15,12 +15,14 @@ on:
 permissions:
   contents: read
 
+  # Concurrency betyder samtidigt
 concurrency:
+  # Group är ett namn på gruppen av workflows som ska köras samtidigt. Vi använder workflow-namnet och branch-namnet för att skapa ett unikt namn per branch.
   group: ci-${{ github.workflow }}-${{ github.ref }}
+  # cancel-in-progress betyder att om en ny workflow startas på samma branch, avbryts den gamla. Vi vill inte avbryta workflows på main, eftersom vi vill att de ska köra klart.
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  VITE_API_BASE_URL: http://localhost:4000
   VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
 
 jobs:
@@ -70,3 +72,17 @@ jobs:
       - uses: ./.github/actions/cypress-e2e
         with:
           command: npm run e2e:ci
+
+  release-image:
+    name: 'Build Production Docker Image'
+    needs: [quality, build, e2e]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t kraftly:latest .
+
+      - name: Show Docker Image Size
+        run: docker image ls kraftly:latest --format "{{.Size}}"
