@@ -11,5 +11,5 @@ services:
     environment:
       DATABASE_URL: postgres://db:5432/app
   db:
-  image: postgres:latest
+    image: postgres:latest
     
