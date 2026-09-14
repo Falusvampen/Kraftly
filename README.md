@@ -17,10 +17,24 @@ för Team Volt, hösten 2026.
 
 ### Förutsättningar
 
-- Node.js 20 eller senare
-- npm
+- **För Docker:** Docker och Docker Compose installerat.
+- **Utan Docker:** Node.js 20 eller senare samt npm.
 
-### Installation och start
+### 1. Med Docker (rekommenderat)
+
+Starta hela miljön (både frontend och mock-API) i isolerade containrar:
+
+```bash
+docker compose up --build
+```
+
+Frontend: Öppna portalen på http://localhost:8080/.
+
+Mock-API: Trafik proxas automatiskt via Nginx till /api/ (ingen separat port behöver öppnas).
+
+För att stoppa miljön: tryck Ctrl+C eller kör docker compose down.
+
+### Utan Docker (lokal utveckling)
 
 Byt ut innehållet i example.env till deras korrekta värden och namnge filen till .env
 
@@ -36,13 +50,17 @@ Mock API körs på <http://localhost:4000/>.
 
 ## Tillgängliga kommandon
 
-| Kommando          | Beskrivning                             |
-| ----------------- | --------------------------------------- |
-| `npm run start`   | Startar Vite och mock API samtidigt.    |
-| `npm run dev`     | Startar endast Vites utvecklingsserver. |
-| `npm run api`     | Startar endast mock API.                |
-| `npm run build`   | Bygger frontend för produktion.         |
-| `npm run preview` | Förhandsvisar produktionsbygget lokalt. |
+| Kommando                    | Beskrivning                                              |
+| --------------------------- | -------------------------------------------------------- |
+| `docker compose up --build` | Förhandsvisar produktionsbygget lokalt.                  |
+| `npm run start`             | Startar Vite och mock API samtidigt.                     |
+| `npm run dev`               | Startar endast Vites utvecklingsserver.                  |
+| `npm run api`               | Startar endast mock API.                                 |
+| `npm run build`             | Bygger frontend för produktion.                          |
+| `npm run preview`           | Förhandsvisar produktionsbygget lokalt.                  |
+| `npm run lint`              | Kör ESLint för att kontrollera kodkvaliteten.            |
+| `npm run test:run`          | Kör enhetstesterna en gång med Vitest.                   |
+| `npm run e2e:ci`            | Kör end-to-end-tester mot produktionsbygget med Cypress. |
 
 ## Teknik
 
@@ -52,6 +70,9 @@ Mock API körs på <http://localhost:4000/>.
 - Pinia
 - Chart.js
 - Express
+- Nginx (i produktion/Docker)
+- Docker & Docker Compose
+- Github Actions
 
 ## Team och arbetssätt
 
