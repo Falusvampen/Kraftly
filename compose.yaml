@@ -1,14 +1,15 @@
 services:
   web:
     build: .
-    ports: ['8080:80']
-    depends_on: [api]
+    ports:
+      - '8080:80'
+    depends_on:
+      - api
+
   api:
     build:
       context: .
-      dockerfile: api/Dockerfile
-    ports: ['4000:4000']
-    environment:
-      DATABASE_URL: postgres://db:5432/app
-  db:
-    image: postgres:latest
+      dockerfile: mock-api/Dockerfile
+    # Ingen "ports"-sektion behövs här eftersom webbläsaren når API via Nginx på port 8080/api.
+    expose:
+      - '4000'
