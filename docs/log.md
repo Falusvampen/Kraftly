@@ -1,4 +1,74 @@
-# 2026-09-08
+# 2026-09-15
+
+Gjort:
+Kollat igenom den sista PRn tillsammans med Liveshare.
+Suttit i Docker och jämfört storlek på Image, på Github och VS code
+Docks/container.md är fixad
+Fyllt i alla loggar.
+
+Grönt:
+Allt ser grönt ut.
+
+Kvar:
+Gå igenom inför inlämning så att allt är med.
+Sätta tag M3
+
+Teamets reflektion:
+Det flyter på bra.
+
+2026-09-14
+
+Gjort:
+Liveshare tillsammans: gick igenom docker, docker compose, testade omit dev, pratade portar och milestones.md
+kollade arkitetur. Kom fram till inte exportera api, tillgängligt i container via proxy.
+Tog bort base url. Deamon off, dockerignore uppdaterad.
+Uppdaterat README.
+Uppdaterad/fyllt i milestones.md med M1, M2 och M3.
+
+Grönt:
+
+Kvar:
+Docks/container.md
+Sätta tag M3
+
+Teamets reflektion:
+Fortsatt fint samarbete och förståelse.
+
+2026-09-10
+
+Gjort:
+Lektioner, testar docker och downsizade image.
+
+Grönt:
+
+Kvar:
+Docks/container.md
+Uppdatera README
+Skicka upp ovanstående som PR
+Sätta tag M3
+
+Teamets reflektion:
+Tom och Axel fick en del gjort på lektionen då Louise jobbade med Suzan.
+
+2026-09-09
+
+Gjort:
+Louise har skapat dockerfile, .dockerignore och nginx.conf
+Tom ser över, rättar stavfel och liknande samt kompletterar utifrån vårt projekt.
+
+Grönt:
+Ovanstående PR grön
+
+Kvar:
+Docks/container.md
+Uppdatera README
+Skicka upp ovanstående som PR
+Sätta tag M3
+
+Teamets reflektion:
+Vi jobbar mycket tillsammans digitalt och har givande samtal.
+
+2026-09-08
 
 Gjort:
 Fyllt i det sista pipeline.md
