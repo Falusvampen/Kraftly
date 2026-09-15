@@ -13,7 +13,9 @@ export default defineConfig([
     plugins: { js },
     extends: ['js/recommended'],
     languageOptions: {
-      globals: globals.browser,
+      globals: {
+        ...globals.browser,
+      },
     },
     rules: {
       'no-console': 'warn',
@@ -21,6 +23,18 @@ export default defineConfig([
       'no-var': 'error',
       eqeqeq: 'error',
       'vue/multi-word-component-names': 'off',
+    },
+  },
+
+  {
+    files: ['mock-api/**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'no-console': 'off', // Tillåt console.log på servern
     },
   },
 

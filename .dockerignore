@@ -7,4 +7,8 @@ cypress
 .dockerignore
 .vscode
 .husky
+/docs
+/tests
 *.md
+npm-debug.log
+.DS_Store

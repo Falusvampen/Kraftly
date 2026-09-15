@@ -2,6 +2,8 @@
 // Webbmakarna AB / M & J
 import express from 'express';
 const app = express();
+const PORT = process.env.PORT || 4000;
+
 app.use(express.json());
 
 // CORS -- opens everything so it just works
@@ -62,4 +64,4 @@ app.put('/api/user', (req, res) => {
   res.json(user);
 });
 
-app.listen(4000, () => console.log('Mock API on http://localhost:4000'));
+app.listen(PORT, () => console.log(`Mock API on ${PORT}`));
