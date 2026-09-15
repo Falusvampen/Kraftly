@@ -8,8 +8,8 @@
 
 | Version          | Basimage               | Storlek | Byggtid (utan cache) | Byggtid (kodändring) |
 | ---------------- | ---------------------- | ------- | -------------------- | -------------------- |
-| Naiv (bara Node) | node:22-alpine         |         | ~                    |                      |
-| Multi-stage      | nginx:1.27-alpine-slim |         | ~                    | ~                    |
+| Naiv (bara Node) | node:22-alpine         |         | ~39.9                | 5.8                  |
+| Multi-stage      | nginx:1.27-alpine-slim |         | ~29.5                | ~26.7                |
 
 ## Beslut 1 · Basimage för frontenden
 
