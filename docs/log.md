@@ -2,7 +2,7 @@
 
 Gjort:
 Kollat igenom den sista PRn tillsammans med Liveshare.
-Suttit i Docker och jämfört storlek på Image, på Github och VS code
+Suttit i Docker och jämfört storlek på Image, på Github och VS code.
 Docks/container.md är fixad
 Fyllt i alla loggar.
 
@@ -15,12 +15,14 @@ Sätta tag M3
 
 Teamets reflektion:
 Det flyter på bra.
+Vi reflekterade och blev förvånade över att våra Images blev så olika stora på våra olika devices.
+Vi satt ganska länge med denna jämförelse och testade tex docker compose down --rmi local, docker builder prune -a -f men problemet kvarstod.
 
 2026-09-14
 
 Gjort:
 Liveshare tillsammans: gick igenom docker, docker compose, testade omit dev, pratade portar och milestones.md
-kollade arkitetur. Kom fram till inte exportera api, tillgängligt i container via proxy.
+kollade arkitetur. Inte exportera api, tillgängligt i container via proxy.
 Tog bort base url. Deamon off, dockerignore uppdaterad.
 Uppdaterat README.
 Uppdaterad/fyllt i milestones.md med M1, M2 och M3.
