@@ -95,7 +95,8 @@ på möten och inte i direktmeddelanden.
 
 ### Tekniskt ansvar
 
-Tech lead: Tom
+Tech lead: Louise M4-
+Tech lead: Tom M0-M3
 
 Om något skaver tar vi upp det tidigt i Slack och ber om hjälp vid behov.
 

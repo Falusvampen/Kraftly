@@ -5,6 +5,7 @@ Kollat igenom den sista PRn tillsammans med Liveshare.
 Suttit i Docker och jämfört storlek på Image, på Github och VS code.
 Docks/container.md är fixad
 Fyllt i alla loggar.
+Beslut taget om ny tech lead för kommande 4 veckor: Louise
 
 Grönt:
 Allt ser grönt ut.
