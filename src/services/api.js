@@ -1,12 +1,10 @@
 // API client for Kraftly "Mina sidor"
-const API_KEY = import.meta.env.VITE_API_KEY;
 
 const request = async (path, options = {}) => {
   const res = await fetch(path, {
     ...options,
     headers: {
       'Content-Type': 'application/json',
-      'X-Api-Key': API_KEY,
       ...options.headers,
     },
   });

@@ -1,3 +1,5 @@
+# MALL – nginx-imagen fyller i ${PORT}, ${API_URL} och ${API_KEY} från miljön när
+# containern startar. Saknas en variabel vägrar nginx starta.
 server {
   listen ${PORT};
   root /usr/share/nginx/html;

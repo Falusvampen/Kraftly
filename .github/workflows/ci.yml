@@ -23,7 +23,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
-  VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
+  API_KEY: ${{ secrets.VITE_API_KEY }}
 
 jobs:
   quality:
