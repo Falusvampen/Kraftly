@@ -28,6 +28,8 @@ if (keys.size === 0) {
 
 app.use(express.json());
 
+app.get('/healthz', (req, res) => res.sendStatus(200));
+
 // CORS -- opens everything so it just works
 app.use('/api', (req, res, next) => {
   const client = keys.get(req.get('X-Api-Key'));
