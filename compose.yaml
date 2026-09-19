@@ -1,8 +1,26 @@
+# services:
+#   web:
+#     build: .
+#     ports:
+#       - '8080:80'
+#     depends_on:
+#       - api
+
+#   api:
+#     build:
+#       context: .
+#       dockerfile: mock-api/Dockerfile
+#     # Ingen "ports"-sektion behövs här eftersom webbläsaren når API via Nginx på port 8080/api.
+#     expose:
+#       - '4000'
 services:
   web:
     build: .
     ports:
       - '8080:80'
+    environment:
+      API_URL: http://api:4000
+      API_KEY: ${API_KEY:?API_KEY saknas – kör cp .env.example .env}
     depends_on:
       - api
 
@@ -10,6 +28,5 @@ services:
     build:
       context: .
       dockerfile: mock-api/Dockerfile
-    # Ingen "ports"-sektion behövs här eftersom webbläsaren når API via Nginx på port 8080/api.
-    expose:
-      - '4000'
+    environment:
+      API_KEY: ${API_KEY:?API_KEY saknas – kör cp .env.example .env}
