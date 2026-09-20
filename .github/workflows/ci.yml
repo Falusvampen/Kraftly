@@ -72,7 +72,10 @@ jobs:
       - uses: ./.github/actions/cypress-e2e
         with:
           command: npm run e2e:ci
-
+        env:
+          E2E_SERVER: preview
+          API_KEY: e2e-testnyckel
+          
   release-image:
     name: 'Build Production Docker Image'
     needs: [quality, build, e2e]
