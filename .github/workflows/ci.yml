@@ -75,7 +75,7 @@ jobs:
         env:
           E2E_SERVER: preview
           API_KEY: e2e-testnyckel
-          
+
   release-image:
     name: 'Build Production Docker Image'
     needs: [quality, build, e2e]
