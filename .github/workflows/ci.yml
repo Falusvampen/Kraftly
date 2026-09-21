@@ -75,7 +75,7 @@ jobs:
         env:
           E2E_SERVER: preview
           API_KEY: e2e-testnyckel
-          
+
   publish:
     name: Image → GHCR
     runs-on: ubuntu-latest
@@ -149,4 +149,4 @@ jobs:
           URL="${URL%/}"
           curl -fsS -X POST "$URL/api/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
           echo
-          echo "✅ /api svarar via nginx med nyckeln från Render"      
+          echo "✅ /api svarar via nginx med nyckeln från Render"
