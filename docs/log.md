@@ -1,4 +1,71 @@
-# 2026-09-15
+# 2026-09-21
+
+Gjort:
+Vi ser över vad vi kan ha missat och testkör igen enligt 1.9
+Fortsätter till spår 2
+Tom gör rollback.yml PR #65
+Louise gör samtliga dokumentfiler, vissa enbart med mall, utan ifyllda gemensamma beslut.
+Branch M4-pipeline skapad, kommenterar ut gammal kod i yml filen och lägger till den nya men filen stashas,
+då den inte kan pushas pga inställningarna som vi inte kan ändra.
+
+Grönt:
+Toms PR #65 rollback, från idag
+Kvar:
+Fylla i gemensamma beslut i dokumentation.
+Sätta tag M4 när allt är klart.
+
+Teamets reflektion:
+Vi stötte på patrull då M4-pipeline skulle mergas då vi inte kunde ändra inställningarna i Github.
+Vi fick jobba vidare med annat och hoppas kunna leverera M4 i tid trots detta. Kom ihåg att alla ska ha access.
+
+2026-09-20
+
+Gjort:
+Louise gjorde 1.8 2 som vi missat.
+Fick först röd PR #63 pga prettier men löste det.
+
+Grönt:
+PR #63
+
+Kvar:
+Fördela kvarvarande uppgifter.
+Sätta tag M4 när allt är klart.
+
+Teamets reflektion:
+
+2026-09-18
+
+Gjort:
+Senaste PR röd, vi löste detta genom ett kortare möte på lördagen.
+
+Grönt:
+PR #62 remove key etc är nu fixad.
+
+Kvar:
+Fördela kvarvarande uppgifter.
+Sätta tag M4 när allt är klart.
+
+Teamets reflektion:
+Det flyter på bra men vissa saker är svårare.
+
+2026-09-17
+
+Gjort:
+Hela spår 1 tillsammans digitalt.
+Tom gjorde sen 1.8 1 som vi hade missat, tog bort det och Axel la till det igen.
+Louise skapade sitt Render-konto
+
+Grönt:
+
+Kvar:
+En hel del kvar att göra då vi alla var frånvarande från skolan denna dag och arbetade en stund tillsammans på
+eftermiddag/kväll.
+Sätta tag M4 längre fram
+
+Teamets reflektion:
+Det flyter på bra.
+
+2026-09-15
 
 Gjort:
 Kollat igenom den sista PRn tillsammans med Liveshare.
