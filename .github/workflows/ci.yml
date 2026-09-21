@@ -72,6 +72,9 @@ jobs:
       - uses: ./.github/actions/cypress-e2e
         with:
           command: npm run e2e:ci
+        env:
+          E2E_SERVER: preview
+          API_KEY: e2e-testnyckel
           
   publish:
     name: Image → GHCR
