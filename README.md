@@ -19,6 +19,8 @@ cp .env.example .env
 
 ## Staging
 
+https://kraftly-volt-staging.onrender.com
+
 ### Förutsättningar
 
 - **För Docker:** Docker och Docker Compose installerat.
