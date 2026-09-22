@@ -30,3 +30,7 @@ Två sätt, steg för steg. Hur ni kontrollerar att det lyckades.
 ## Kända begränsningar
 
 (kallstart, vem som äger Render-kontot, arm64 vs amd64, ingen prod ännu)
+
+## Screenshot
+
+![screenshot](docs/images/curl_api_test.png)
