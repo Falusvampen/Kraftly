@@ -19,6 +19,8 @@ cp .env.example .env
 
 ## Staging
 
+(Den sover efter 15 minuter)
+
 https://kraftly-volt-staging.onrender.com
 
 ### Förutsättningar
