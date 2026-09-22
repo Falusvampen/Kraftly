@@ -50,3 +50,6 @@
 - [x]7. Miljökonfig via variabler: API_URL och API_KEY sätts i Render, inte i imagen. Samma image kör lokalt i compose.
 - [x]8. docs/deploy.md enligt mallen från workshopen (flöde, miljöer, var varje variabel bor, nyckeln, rollback, uppmätta tider, kända begränsningar) + beslutsdokument docs/decisions/hosting.md med minst tre jämförda alternativ. **[INTE KLAR]** tider och en del på rollback saknas.
 - [x]9. README med staging-adressen och Kom igång som börjar med cp .env.example .env · logg i docs/log.md, en post per arbetsdag, med vem som gjorde vad.
+
+Delar av nedanstående har vi missat:
+Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).
