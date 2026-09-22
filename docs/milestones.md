@@ -44,21 +44,9 @@
 - [x] 1.Nyckeln ut ur koden: ingen API-nyckel i src/ och inga hemligheter i VITE_-variabler. Appen anropar /api relativt, och nginx lägger på X-Api-Key från miljön (nginx.conf.template)
 - [x] 2.Den gamla nyckeln är död – och ni har bevisat det: curl mot test-API:t med nyckeln från api.js ger 401, och utskriften står i docs/deploy.md. Teamets nya nyckel finns bara i Render
 - [x] 3.Lokalt fungerar som förut: .env.example i repot, .env i .gitignore och .dockerignore. Från en ren klon: cp .env.example .env + docker compose up --build → man kan logga in
-
-- [ ]4. Bygg en gång: pipelinen bygger imagen en gång per commit och pushar den till GHCR taggad med commitens sha – bara från main, aldrig från en PR
-  ^---CI bygger en Docker-image på main i ci.yml:83, men den pushas inte till GHCR och taggas inte med commit-sha. Jag ser heller ingen docker login eller docker push i workflowet. Att det bara sker från main stämmer däremot för just image-jobbet.
-
-- [ ]5.Automatisk deploy till staging: merge till main deployar till Render via deploy hook. Hooken ligger som secret i GitHub-miljön staging, adressen som variable. Ingen klickar i Render för att släppa en version
-  ^---Det finns ingen automatisk deploy på merge till main. Det som finns är ett manuellt rollback-workflow i rollback.yml:1 som använder Render-hook och staging-variabel, vilket visar att ni har förberett mekaniken, men inget deploy-jobb triggas automatiskt från CI.
-
-- [ ]6. Verifierad deploy: deploy-jobbet väntar tills /version.txt visar commitens sha och gör sedan ett röktest mot /api – jobbet blir rött om något av dem misslyckas
-  ^---delvis förberedd men inte klar. Imagen skriver ut commit-sha till dockerfile:25 via version.txt, och rollback-workflowet väntar faktiskt på att staging ska visa rätt version i rollback.yml:37. Men det finns inget deploy-jobb som efter merge väntar på version.txt och sedan röktestar /api. Alltså: verifieringslogiken finns bara för rollback, inte för vanlig deploy.)
-
-- [ ]7. Miljökonfig via variabler: API_URL och API_KEY sätts i Render, inte i imagen. Samma image kör lokalt i compose
-  ^---är delvis klar i kodbasen men inte verifierbar i Render från repot. Nginx-imagen läser API_URL och API_KEY vid runtime i nginx.conf.template:1, och samma image används lokalt via compose.yaml:18. Men om variablerna faktiskt är satta i Render kan inte bevisas härifrån. Jag noterar också att CI fortfarande refererar till secrets.VITE_API_KEY i ci.yml:20, vilket tyder på att gammal namngivning lever kvar åtminstone i GitHub.
-
-- [ ]8. docs/deploy.md enligt mallen från workshopen (flöde, miljöer, var varje variabel bor, nyckeln, rollback, uppmätta tider, kända begränsningar) + beslutsdokument docs/decisions/hosting.md med minst tre jämförda alternativ
-  ^---Är inte klar. Jag hittar inget deploy-dokument och inget hosting-beslut med tre alternativ. Det enda beslutsdokumentet under decisions är e2e-verktyg.md.
-
-- [ ]9. README med staging-adressen och Kom igång som börjar med cp .env.example .env · logg i docs/log.md, en post per arbetsdag, med vem som gjorde vad
-  ^---är inte klar. README saknar staging-adress och Kom igång börjar inte med cp .env.example .env, utan med docker compose up --build i README.md:17. Loggen finns i log.md:1, men jag kan inte bekräfta “en post per arbetsdag”; dessutom är formatet lite ojämnt.
+- [x]4. Bygg en gång: pipelinen bygger imagen en gång per commit och pushar den till GHCR taggad med commitens sha – bara från main, aldrig från en PR
+- [x]5.Automatisk deploy till staging: merge till main deployar till Render via deploy hook. Hooken ligger som secret i GitHub-miljön staging, adressen som variable. Ingen klickar i Render för att släppa en version.
+- [x]6. Verifierad deploy: deploy-jobbet väntar tills /version.txt visar commitens sha och gör sedan ett röktest mot /api – jobbet blir rött om något av dem misslyckas.
+- [x]7. Miljökonfig via variabler: API_URL och API_KEY sätts i Render, inte i imagen. Samma image kör lokalt i compose.
+- [x]8. docs/deploy.md enligt mallen från workshopen (flöde, miljöer, var varje variabel bor, nyckeln, rollback, uppmätta tider, kända begränsningar) + beslutsdokument docs/decisions/hosting.md med minst tre jämförda alternativ. **[INTE KLAR]** tider och en del på rollback saknas.
+- [x]9. README med staging-adressen och Kom igång som börjar med cp .env.example .env · logg i docs/log.md, en post per arbetsdag, med vem som gjorde vad.

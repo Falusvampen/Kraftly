@@ -1,4 +1,22 @@
-# 2026-09-21
+# 2026-09-22
+
+Gjort:
+Kopplat ihop Image med Render
+Louise skriver mer dokumentation men vissa saker saknas ännu.
+Tom fann en sak vi missat att ändra alt skrivit fel i nginx.conf som löste de flesta av våra problem.
+
+Grönt:
+De flesta tidigare staging som var röda är nu gröna.
+
+Kvar:
+All dokumentation är inte färdigställd ännu tyvärr. Bla Tider och mer om Rollback i deploy.
+Sätta tag M4 när allt är klart.
+
+Teamets reflektion:
+M4 har varit tuff då vi haft en del frånvaro pga diverse anledningar.Ingen var närvarande på torsdagen så jobbet kom inte igång i tid.
+Då bara ägaren av repot kan ändra inställningar så blockerades vi emellanåt.
+
+2026-09-21
 
 Gjort:
 Vi ser över vad vi kan ha missat och testkör igen enligt 1.9
@@ -7,6 +25,7 @@ Tom gör rollback.yml PR #65
 Louise gör samtliga dokumentfiler, vissa enbart med mall, utan ifyllda gemensamma beslut.
 Branch M4-pipeline skapad, kommenterar ut gammal kod i yml filen och lägger till den nya men filen stashas,
 då den inte kan pushas pga inställningarna som vi inte kan ändra.
+Axel hjälpte Louise med merge conflict och Prettier-fel efter PR.
 
 Grönt:
 Toms PR #65 rollback, från idag
@@ -17,6 +36,7 @@ Sätta tag M4 när allt är klart.
 Teamets reflektion:
 Vi stötte på patrull då M4-pipeline skulle mergas då vi inte kunde ändra inställningarna i Github.
 Vi fick jobba vidare med annat och hoppas kunna leverera M4 i tid trots detta. Kom ihåg att alla ska ha access.
+M4 har varit tuff då vi haft en del frånvaro pga diverse anledningar.
 
 2026-09-20
 
@@ -51,7 +71,7 @@ Det flyter på bra men vissa saker är svårare.
 2026-09-17
 
 Gjort:
-Hela spår 1 tillsammans digitalt.
+Hela spår 1 tillsammans digitalt via Liveshare i VS-code
 Tom gjorde sen 1.8 1 som vi hade missat, tog bort det och Axel la till det igen.
 Louise skapade sitt Render-konto
 
