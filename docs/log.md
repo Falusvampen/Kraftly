@@ -17,6 +17,7 @@ Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln
 Teamets reflektion:
 M4 har varit tuff då vi haft en del frånvaro pga diverse anledningar.Ingen var närvarande på torsdagen så jobbet kom inte igång i tid.
 Då bara ägaren av repot kan ändra inställningar så blockerades vi emellanåt.
+Vi måste se till att komma ikapp snarast.
 
 2026-09-21
 

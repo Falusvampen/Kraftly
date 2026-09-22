@@ -45,7 +45,7 @@ Den nya ligger hos Render.
 
 ## Rollback
 
-Två sätt, steg för steg. Hur ni kontrollerar att det lyckades.
+Två sätt, steg för steg. Hur ni kontrollerar att det lyckades. Ett sätt kvar.
 
 1.Rollback i Render, manuellt:
 
@@ -55,7 +55,7 @@ Två sätt, steg för steg. Hur ni kontrollerar att det lyckades.
 - Då får vi upp vår sha.
 - Kontrollera SHA-hashen: Verifiera att den Git-SHA som visas på sidan matchar den stabila versionen som du precis rullade tillbaka till.
 
-## Tider (uppmätta)
+## Tider (uppmätta) kvar att göra.
 
 | Steg | Tid |
 (merge → publish klar · hook → rätt sha svarar · totalt · kallstart)

@@ -52,4 +52,4 @@
 - [x]9. README med staging-adressen och Kom igång som börjar med cp .env.example .env · logg i docs/log.md, en post per arbetsdag, med vem som gjorde vad.
 
 Delar av nedanstående har vi missat:
-Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).
+Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).Vi behöver komma ikapp här.
