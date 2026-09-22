@@ -13,7 +13,11 @@ för Team Volt, hösten 2026.
 - Flyttanmälan
 - Mock API för lokal utveckling
 
-## Kom igång
+## Kom igång (utan .env startar varken mock-API:t eller compose)
+
+cp .env.example .env
+
+## Staging
 
 ### Förutsättningar
 
