@@ -15,6 +15,8 @@ för Team Volt, hösten 2026.
 
 ## Kom igång
 
+cp .env.example .env
+
 ### Förutsättningar
 
 - **För Docker:** Docker och Docker Compose installerat.
