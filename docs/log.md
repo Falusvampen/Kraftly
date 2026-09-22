@@ -11,7 +11,6 @@ De flesta tidigare staging som var röda är nu gröna.
 Kvar:
 All dokumentation är inte färdigställd ännu tyvärr. Bla Tider och mer om Rollback i deploy.
 Sätta tag M4 när allt är klart.
-
 Delar av nedanstående har vi ogjort:
 Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).
 
