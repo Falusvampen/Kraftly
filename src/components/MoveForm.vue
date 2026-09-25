@@ -31,9 +31,9 @@
 
 <script setup>
 import { reactive } from 'vue';
-import BaseButton from './BaseButton.vue';
-import BaseInput from './BaseInput.vue';
-import validateMove from '../utils/validateMove.js';
+import BaseButton from '@components/BaseButton.vue';
+import BaseInput from '@components/BaseInput.vue';
+import validateMove from '@utils/validateMove.js';
 
 const emit = defineEmits(['submit']);
 

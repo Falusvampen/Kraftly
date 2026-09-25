@@ -17,8 +17,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import AppButton from '../components/AppButton.vue';
-import { useUserStore } from '../stores/user';
+import AppButton from '@components/AppButton.vue';
+import { useUserStore } from '@/stores/user';
 
 const store = useUserStore();
 const name = ref('');

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/vue';
-import ConsumptionChart from '../../src/components/ConsumptionChart.vue';
+import ConsumptionChart from '@components/ConsumptionChart.vue';
 
 const { chartMock, destroyMock } = vi.hoisted(() => {
   const destroyMock = vi.fn();

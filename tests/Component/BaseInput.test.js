@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
-import BaseInput from '../../src/components/BaseInput.vue';
+import BaseInput from '@components/BaseInput.vue';
 
 describe('BaseInput.vue', () => {
   beforeEach(() => {

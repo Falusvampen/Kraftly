@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap">
     <div class="card login-card">
-      <img src="../assets/logo-dark.svg" class="login-logo" />
+      <img src="@/assets/logo-dark.svg" class="login-logo" />
       <h1>Logga in på Mina sidor</h1>
       <input type="text" placeholder="E-postadress" v-model="email" />
       <input type="password" placeholder="Lösenord" v-model="password" />
@@ -16,7 +16,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { login } from '../services/api';
+import { login } from '@/services/api';
 
 const email = ref('');
 const password = ref('');
