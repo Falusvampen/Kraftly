@@ -16,8 +16,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import MoveForm from '../components/MoveForm.vue';
-import { submitMove } from '../services/api';
+import MoveForm from '@components/MoveForm.vue';
+import { submitMove } from '@/services/api';
 
 const reference = ref(null);
 

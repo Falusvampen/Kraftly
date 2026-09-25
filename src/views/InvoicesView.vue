@@ -30,8 +30,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { fetchInvoices } from '../services/api';
-import StatusChip from '../components/StatusChip.vue';
+import { fetchInvoices } from '@/services/api';
+import StatusChip from '@components/StatusChip.vue';
 
 const invoices = ref([]);
 

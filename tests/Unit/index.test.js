@@ -23,7 +23,7 @@ vi.mock('vue-router', async function (importOriginal) {
 /*Vi-test somehow magically makes sure that our import is replaced by the mocked version
 I have no idea how that works but it does and I wish it was more explicit. :|*/
 
-import router from '../../src/router/index.js'; //<--- SOMEHOW index.js receives mockedVueRouter instead of vue-router.
+import router from '@/router/index.js'; //<--- SOMEHOW index.js receives mockedVueRouter instead of vue-router.
 
 it('has a login route', function () {
   //add more URL-checks later?
