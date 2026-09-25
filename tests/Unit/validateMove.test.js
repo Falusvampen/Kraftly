@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import validateMove from '../../src/utils/validateMove.js';
+import validateMove from '@utils/validateMove.js';
 
 describe('validateMove', () => {
   const validForm = {

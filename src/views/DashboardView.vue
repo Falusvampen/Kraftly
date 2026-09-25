@@ -31,7 +31,7 @@
       />
       <p class="hint">Källa: din elmätare. Uppdateras varje dygn.</p>
     </div>
-
+    <NorwayNotice />
     <div class="card">
       <h2>Spartips just nu</h2>
       <p>
@@ -47,9 +47,9 @@
 // Dashboard. Got a bit big, clean up some day /M
 import _ from 'lodash';
 import { computed, onMounted, onBeforeUnmount } from 'vue';
-import { useUserStore } from '../stores/user';
-import { useConsumptionStore } from '../stores/consumption';
-import ConsumptionChart from '../components/ConsumptionChart.vue';
+import { useUserStore } from '@/stores/user';
+import { useConsumptionStore } from '@/stores/consumption';
+import ConsumptionChart from '@components/ConsumptionChart.vue';
 
 const userStore = useUserStore();
 const consumptionStore = useConsumptionStore();

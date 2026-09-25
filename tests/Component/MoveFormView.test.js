@@ -2,10 +2,10 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
-import MoveFormView from '../../src/views/MoveFormView.vue';
-import * as api from '../../src/services/api';
+import MoveFormView from '@/views/MoveFormView.vue';
+import * as api from '@/services/api';
 
-vi.mock('../../src/services/api', () => ({
+vi.mock('@/services/api', () => ({
   submitMove: vi.fn(),
 }));
 

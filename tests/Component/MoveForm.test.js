@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/vue';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/vitest';
-import MoveForm from '../../src/components/MoveForm.vue';
+import MoveForm from '@components/MoveForm.vue';
 
 describe('MoveForm.vue', () => {
   beforeEach(() => {
