@@ -18,9 +18,9 @@ F --> G[Verifiering]
 
 ## Miljöer
 
-| Miljö            | URL                                          | Image                                   | API                                      | Uppdateras                    |
-| ---------------- | -------------------------------------------- | --------------------------------------- | ---------------------------------------- | ----------------------------- |
-| Utveckling (Dev) | `https://kraftly-volt-staging.onrender.com/` | http://ghcr.io/falusvampen/kraftly:main | https://kraftly-api-staging.onrender.com | Automatisk via Github Actions |
+| Miljö            | URL                                       | Image                                   | API                                      | Uppdateras                    |
+| ---------------- | ----------------------------------------- | --------------------------------------- | ---------------------------------------- | ----------------------------- |
+| Utveckling (Dev) | `https://kraftly-prod-l5qt.onrender.com/` | http://ghcr.io/falusvampen/kraftly:main | https://kraftly-api-staging.onrender.com | Automatisk via Github Actions |
 
 ## Konfiguration – var bor vad?
 
