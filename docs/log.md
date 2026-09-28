@@ -1,3 +1,18 @@
+# 2026-09-28
+
+Gjort:
+Problemlösning, tillsammans
+Louise fyller i lite mer dokumentation
+
+Grönt:
+
+Kvar:
+En del kvar i scaling bla
+Tom fyller i cache.md
+Milestones-DoD
+
+Teamets reflektion:
+
 # 2026-09-27
 
 Gjort:
