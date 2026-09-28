@@ -3,26 +3,30 @@
     <h1>Fakturor</h1>
     <div class="card">
       <table>
-        <tr>
-          <th>Faktura</th>
-          <th>Period</th>
-          <th>Belopp</th>
-          <th>Förfaller</th>
-          <th>Status</th>
-          <th></th>
-        </tr>
-        <tr v-for="invoice in invoices" :key="invoice.id">
-          <td>{{ invoice.id }}</td>
-          <td>{{ invoice.period }}</td>
-          <td>{{ invoice.amount }} kr</td>
-          <td>{{ invoice.due }}</td>
-          <td>
-            <StatusChip :status="invoice.status" />
-          </td>
-          <td>
-            <div class="download" @click="downloadInvoice(invoice)">Ladda ner</div>
-          </td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Faktura</th>
+            <th>Period</th>
+            <th>Belopp</th>
+            <th>Förfaller</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="invoice in invoices" :key="invoice.id">
+            <td>{{ invoice.id }}</td>
+            <td>{{ invoice.period }}</td>
+            <td>{{ invoice.amount }} kr</td>
+            <td>{{ invoice.due }}</td>
+            <td>
+              <StatusChip :status="invoice.status" />
+            </td>
+            <td>
+              <div class="download" @click="downloadInvoice(invoice)">Ladda ner</div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
