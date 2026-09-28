@@ -23,6 +23,10 @@ cp .env.example .env
 
 https://kraftly-volt-staging.onrender.com
 
+## Produktion
+
+https://kraftly-prod-l5qt.onrender.com/
+
 ### Förutsättningar
 
 - **För Docker:** Docker och Docker Compose installerat.

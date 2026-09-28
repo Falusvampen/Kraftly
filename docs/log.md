@@ -1,3 +1,52 @@
+# 2026-09-28
+
+Gjort:
+Problemlösning, tillsammans
+Louise fyller i lite mer dokumentation
+
+Grönt:
+
+Kvar:
+En del kvar i scaling bla
+Tom fyller i cache.md
+Milestones-DoD
+
+Teamets reflektion:
+
+# 2026-09-27
+
+Gjort:
+Louise skapar scaling.md, cache.md och decisions.md/feature-flags.md med templat men utan våra data och fyller i log.md
+
+Grönt:
+
+Kvar:
+
+Teamets reflektion:
+
+# 2026-09-25
+
+Gjort:
+Boilerroom!
+Tillsammans gick vi igenom torsdagens uppgifter och övningar.
+Vi kör skärmdelning och Liveshare.
+Vi fördelar jobbet enligt nedan:
+
+1. Axel och Louise
+2. Axel och Louise
+3. Tom
+
+Grönt:
+
+Kvar:
+All dokumentation från M4 är inte färdigställd ännu tyvärr. Bla Tider och mer om Rollback i deploy.
+Dokumentation och DoD M5
+Sätta tag M5
+Delar av nedanstående har vi ogjort:
+Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).
+
+Teamets reflektion:
+
 # 2026-09-22
 
 Gjort:
