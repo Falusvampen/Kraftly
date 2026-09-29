@@ -1,19 +1,22 @@
-# Beslut:
+# Beslut: Hosting av Team-Volt (Kraftly)
 
-**Datum:** 2026-09-21
-**Beslut:** Vi valde
+## Datum: 2026-09-29
 
-## Bakgrund
+## Beslut:
 
-## Vad vi såg
+Render, beslutet var redan taget.
 
-| | | ------------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **Tid till första gröna test** | | |
-| **Hur man hittar element** | | |
-| **Mockning av nätverk** | | |
-| **Väntan / flakiness** | | |
-| **Felmeddelanden** | | |
+## Alternativ vi jämförde:
 
-## Motivering
+-Netlify
+-Render
+-VPS - virtual private server
 
-## Konsekvenser
+## Motivering:
+
+_Render_
+Fördelar:
+Enkelt, lagom mellanting mellan Netlify och VPS, mycket enklare än VPS
+Stor kontroll, inbyggt stöd för databaser.
+GitHub-integration och auto deploy.
+Lämpar sig väl för projektets scope.

@@ -1,15 +1,32 @@
-# 2026-09-28
+# 2026-09-29
 
 Gjort:
-Problemlösning, tillsammans
-Louise fyller i lite mer dokumentation
+Sammanstält DoD i milestones.md och fyllt i log.
+Checkat av några tveksamheter bla rollback, vi gör en till rollback
+<https://github.com/Falusvampen/Kraftly/actions/runs/36551582920>
+sha 4320c01ef20f5a1bb2ab79d210862bb15df0487a
+Axel fixar miljöbanner i allt utom prod.
+Hosting.md
+
+Grönt:
+Allt just nu!
+
+Kvar:
+Sätta M5 taggen
+
+Teamets reflektion:
+Vi är i fas igen tror vi.
+
+# 2026-09-28
+
+Gjort: Problemlösning med norgeflaggan.
 
 Grönt:
 
 Kvar:
-En del kvar i scaling bla
-Tom fyller i cache.md
-Milestones-DoD
+DoD
+Checka rollbacken
+Hosting.md
 
 Teamets reflektion:
 
@@ -30,6 +47,7 @@ Gjort:
 Boilerroom!
 Tillsammans gick vi igenom torsdagens uppgifter och övningar.
 Vi kör skärmdelning och Liveshare.
+Kör rollback <https://github.com/Falusvampen/Kraftly/actions/workflows/rollback.yml>
 Vi fördelar jobbet enligt nedan:
 
 1. Axel och Louise
@@ -68,7 +86,7 @@ M4 har varit tuff då vi haft en del frånvaro pga diverse anledningar.Ingen var
 Då bara ägaren av repot kan ändra inställningar så blockerades vi emellanåt.
 Vi måste se till att komma ikapp snarast.
 
-2026-09-21
+# 2026-09-21
 
 Gjort:
 Vi ser över vad vi kan ha missat och testkör igen enligt 1.9
@@ -90,7 +108,7 @@ Vi stötte på patrull då M4-pipeline skulle mergas då vi inte kunde ändra in
 Vi fick jobba vidare med annat och hoppas kunna leverera M4 i tid trots detta. Kom ihåg att alla ska ha access.
 M4 har varit tuff då vi haft en del frånvaro pga diverse anledningar.
 
-2026-09-20
+# 2026-09-20
 
 Gjort:
 Louise gjorde 1.8 2 som vi missat.
@@ -105,7 +123,7 @@ Sätta tag M4 när allt är klart.
 
 Teamets reflektion:
 
-2026-09-18
+# 2026-09-18
 
 Gjort:
 Senaste PR röd, vi löste detta genom ett kortare möte på lördagen.
@@ -120,7 +138,7 @@ Sätta tag M4 när allt är klart.
 Teamets reflektion:
 Det flyter på bra men vissa saker är svårare.
 
-2026-09-17
+# 2026-09-17
 
 Gjort:
 Hela spår 1 tillsammans digitalt via Liveshare i VS-code
@@ -137,7 +155,7 @@ Sätta tag M4 längre fram
 Teamets reflektion:
 Det flyter på bra.
 
-2026-09-15
+# 2026-09-15
 
 Gjort:
 Kollat igenom den sista PRn tillsammans med Liveshare.
@@ -158,7 +176,7 @@ Det flyter på bra.
 Vi reflekterade och blev förvånade över att våra Images blev så olika stora på våra olika devices.
 Vi satt ganska länge med denna jämförelse och testade tex docker compose down --rmi local, docker builder prune -a -f men problemet kvarstod.
 
-2026-09-14
+# 2026-09-14
 
 Gjort:
 Liveshare tillsammans: gick igenom docker, docker compose, testade omit dev, pratade portar och milestones.md
@@ -176,7 +194,7 @@ Sätta tag M3
 Teamets reflektion:
 Fortsatt fint samarbete och förståelse.
 
-2026-09-10
+# 2026-09-10
 
 Gjort:
 Lektioner, testar docker och downsizade image.
@@ -192,7 +210,7 @@ Sätta tag M3
 Teamets reflektion:
 Tom och Axel fick en del gjort på lektionen då Louise jobbade med Suzan.
 
-2026-09-09
+# 2026-09-09
 
 Gjort:
 Louise har skapat dockerfile, .dockerignore och nginx.conf
@@ -210,7 +228,7 @@ Sätta tag M3
 Teamets reflektion:
 Vi jobbar mycket tillsammans digitalt och har givande samtal.
 
-2026-09-08
+# 2026-09-08
 
 Gjort:
 Fyllt i det sista pipeline.md
@@ -228,7 +246,7 @@ Sätta M2-tag
 Teamets reflektion:
 Inget skav i detta team.
 
-2026-09-07
+# 2026-09-07
 
 Gjort:
 Kort stand up på morgonen.
@@ -244,7 +262,7 @@ Checka av mot samtliga punkter inför kommande inlämning.
 Teamets reflektion:
 Det flyter på bra!
 
-2026-09-04
+# 2026-09-04
 
 Gjort:
 Var och en arbetade enskilt.
@@ -259,7 +277,7 @@ Checka av mot samtliga punkter inför kommande inlämning.
 
 Teamets reflektion:
 
-2026-09-03
+# 2026-09-03
 
 Gjort:
 Vi arbetade tillsammans, digitalt,med torsdagens uppgifter.
@@ -276,7 +294,7 @@ Checka av mot samtliga punkter inför kommande inlämning.
 Teamets reflektion:
 Samarbetet flyter på bra!
 
-2026-09-01
+# 2026-09-01
 
 Gjort:
 M1- PR och merge
@@ -292,7 +310,7 @@ Teamets reflektion:
 Vi är väldigt nöjda med flowet och samarbetet i teamet. Det är avspänt, alla lyssnar på varandra och hjälps åt.
 Testet på Statuschip är relativt enkelt och tydligt.
 
-2026-08-31
+# 2026-08-31
 
 Gjort:
 M1- Färdigställa testerna
@@ -304,7 +322,7 @@ Några av testerna är klara och fungerar efter merge
 Kvar:
 Ett par PR ska approvas och mergas
 
-2026-08-28 · Boiler Room 1
+# 2026-08-28 · Boiler Room 1
 
 Gjort:
 
@@ -325,7 +343,7 @@ Kvar till M1-taggen tisdag: Testerna
 E2E: Vi valde Cypress· smoke + mockat test gröna: ja
 Fastnat på: Vi har fastnat på vissa tester som vi arbetar vidare med.
 
-Logg - 2026-08-24
+# Logg - 2026-08-24
 
 Vad vi har gjort:
 
