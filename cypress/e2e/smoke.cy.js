@@ -1,12 +1,18 @@
 describe('inloggning', () => {
   beforeEach(() => {
-    cy.intercept('POST', '**/api/login', {
-      token: 'test',
+    cy.intercept('POST', '**/api/v2/auth/login', {
+      accessToken: 'test',
       name: 'Anna Andersson',
     }).as('login');
     cy.intercept('GET', '**/api/user', {
       name: 'Anna Andersson',
       contract: 'Rörligt pris',
+    });
+    cy.intercept('GET', '**/api/consumption', {
+      unit: 'kWh',
+      months: ['Jan'],
+      values: [100],
+      pricePerKwh: 2,
     });
   });
 
