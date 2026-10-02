@@ -1,6 +1,9 @@
 describe('fakturor', () => {
   beforeEach(() => {
-    cy.intercept('POST', '**/api/login', { token: 'test', name: 'Test Testsson' });
+    cy.intercept('POST', '**/api/v2/auth/login', {
+      accessToken: 'test',
+      name: 'Test Testsson',
+    }).as('login');
     cy.intercept('GET', '**/api/user', { name: 'Test Testsson', contract: 'Rörligt pris' });
     cy.intercept('GET', '**/api/consumption', {
       unit: 'kWh',
@@ -16,7 +19,10 @@ describe('fakturor', () => {
     ]).as('invoices');
 
     cy.visit('/login');
+    cy.get('input[placeholder="E-postadress"]').type('test@example.com');
+    cy.get('input[placeholder="Lösenord"]').type('kraftly-test');
     cy.contains('button', 'Logga in').click();
+    cy.wait('@login');
     cy.contains('a', 'Fakturor').click();
     cy.wait('@invoices');
 
