@@ -1,4 +1,5 @@
 // API client for Kraftly "Mina sidor"
+import { setAccessToken } from './token';
 
 const request = async (path, options = {}) => {
   const res = await fetch(path, {
@@ -31,3 +32,26 @@ export const submitMove = (data) =>
 
 export const saveUser = (data) =>
   request('/api/user', { method: 'PUT', body: JSON.stringify(data) });
+
+const refreshAccessToken = async () => {
+  try {
+    const res = await fetch('/api/v2/auth/refresh', {
+      method: 'POST',
+      credentials: 'include',
+    });
+
+    if (!res.ok) {
+      setAccessToken(null);
+      return false;
+    }
+
+    const data = await res.json();
+    setAccessToken(data.token);
+    return true;
+  } catch {
+    setAccessToken(null);
+    return false;
+  }
+};
+
+export const initAuth = () => refreshAccessToken();

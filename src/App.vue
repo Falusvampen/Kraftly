@@ -21,12 +21,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-
+import { setAccessToken } from '@/services/token';
 const router = useRouter();
 const appEnv = window.__KRAFTLY__?.env ?? 'lokal';
 
 const logout = () => {
-  localStorage.removeItem('kraftly_logged_in');
+  setAccessToken(null);
   router.push('/login');
 };
 </script>
@@ -42,9 +42,11 @@ const logout = () => {
   text-align: center;
   padding: 5px 0;
 }
+
 .topbar {
   background: #101d3d;
 }
+
 .topbar-inner {
   display: flex;
   align-items: center;
@@ -52,9 +54,11 @@ const logout = () => {
   padding-top: 14px;
   padding-bottom: 14px;
 }
+
 .logo {
   height: 30px;
 }
+
 .topbar nav a,
 .logout {
   color: #c2cbe4;
@@ -63,6 +67,7 @@ const logout = () => {
   font-size: 14.5px;
   cursor: pointer;
 }
+
 .topbar nav a.router-link-active {
   color: #fff;
   font-weight: 600;
