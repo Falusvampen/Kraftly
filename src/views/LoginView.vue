@@ -30,7 +30,7 @@ const router = useRouter();
 const handleLogin = async () => {
   try {
     const data = await login(email.value, password.value);
-    setAccessToken(data.token);
+    setAccessToken(data.accessToken);
     router.push('/');
   } catch {
     errorMessage.value = 'Fel e-postadress eller lösenord.';
