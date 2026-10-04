@@ -17,10 +17,22 @@ const router = createRouter({
     { path: '/profil', component: ProfileView },
   ],
 });
-router.beforeEach((to) => {
-  if (to.path !== '/login' && !getAccessToken()) {
+
+/* UX guard only.
+ Real authorization is enforced by the API.
+ This redirects unauthenticated users to /login. */
+router.beforeEach(function (to) {
+  if (to.path === '/login') {
+    return true;
+  }
+
+  const token = getAccessToken();
+
+  if (!token) {
     return '/login';
   }
+
+  return true;
 });
 
 export default router;

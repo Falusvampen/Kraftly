@@ -4,11 +4,11 @@ describe('inloggning', () => {
       accessToken: 'test',
       name: 'Anna Andersson',
     }).as('login');
-    cy.intercept('GET', '**/api/user', {
+    cy.intercept('GET', '**/api/v2/user', {
       name: 'Anna Andersson',
       contract: 'Rörligt pris',
     });
-    cy.intercept('GET', '**/api/consumption', {
+    cy.intercept('GET', '**/api/v2/consumption', {
       unit: 'kWh',
       months: ['Jan'],
       values: [100],
