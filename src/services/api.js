@@ -31,23 +31,22 @@ export const login = (email, password) =>
     body: JSON.stringify({ email, password }),
   });
 
-export const fetchUser = () => request('/api/user');
+export const fetchUser = () => request('/api/v2/user');
 
-export const fetchConsumption = () => request('/api/consumption');
+export const fetchConsumption = () => request('/api/v2/consumption');
 
-export const fetchInvoices = () => request('/api/invoices');
+export const fetchInvoices = () => request('/api/v2/invoices');
 
 export const submitMove = (data) =>
-  request('/api/move', { method: 'POST', body: JSON.stringify(data) });
+  request('/api/v2/move', { method: 'POST', body: JSON.stringify(data) });
 
 export const saveUser = (data) =>
-  request('/api/user', { method: 'PUT', body: JSON.stringify(data) });
+  request('/api/v2/user', { method: 'PUT', body: JSON.stringify(data) });
 
 const refreshAccessToken = async () => {
   try {
     const res = await fetch('/api/v2/auth/refresh', {
       method: 'POST',
-      credentials: 'include',
     });
 
     if (!res.ok) {
