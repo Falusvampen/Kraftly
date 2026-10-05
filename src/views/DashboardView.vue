@@ -1,6 +1,13 @@
 <template>
   <div>
-    <img src="../assets/hero.webp" class="hero" />
+    <img
+      src="../assets/hero.webp"
+      class="hero"
+      width="1200"
+      height="600"
+      fetchpriority="high"
+      alt="Hero image"
+    />
     <h1 v-if="userStore.user">Hej {{ userStore.user.name.split(' ')[0] }}!</h1>
     <h1 v-else>Hej!</h1>
 
@@ -44,7 +51,7 @@
 </template>
 
 <script setup>
-// Dashboard. Got a bit big, clean up some day /M
+// Dashboard. Got a bit big, clean up some day/M
 import _ from 'lodash';
 import { computed, onMounted, onBeforeUnmount } from 'vue';
 import { useUserStore } from '@/stores/user';
