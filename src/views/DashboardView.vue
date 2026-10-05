@@ -64,7 +64,7 @@ const currentPrice = computed(() =>
   consumptionStore.data ? consumptionStore.data.pricePerKwh : '–',
 );
 
-// debounce on resize, chart.js redraws itself but we log a bit /J
+// debounce on resize, chart.js redraws itself but we log a bit  /J
 const onResize = _.debounce(() => console.log('resize', window.innerWidth), 300);
 
 onMounted(() => {
@@ -88,16 +88,19 @@ const showTips = () => {
   border-radius: 10px;
   margin-bottom: 18px;
 }
+
 .stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+
 .stat-label {
   font-size: 13px;
   color: #7c8698;
   margin-bottom: 6px;
 }
+
 .stat-value {
   font-size: 26px;
   font-weight: 700;
