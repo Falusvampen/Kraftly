@@ -1,14 +1,24 @@
 // API client for Kraftly "Mina sidor"
-import { setAccessToken } from './token';
+import { getAccessToken, setAccessToken } from './token';
 
 const request = async (path, options = {}) => {
+  const token = getAccessToken();
   const res = await fetch(path, {
     ...options,
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...options.headers,
     },
   });
+  if (res.status === 401) {
+    const refreshed = await refreshAccessToken();
+
+    if (refreshed) {
+      return request(path, options, true);
+    }
+  }
   if (!res.ok) {
     throw new Error('API error ' + res.status);
   }
@@ -21,23 +31,22 @@ export const login = (email, password) =>
     body: JSON.stringify({ email, password }),
   });
 
-export const fetchUser = () => request('/api/user');
+export const fetchUser = () => request('/api/v2/user');
 
-export const fetchConsumption = () => request('/api/consumption');
+export const fetchConsumption = () => request('/api/v2/consumption');
 
-export const fetchInvoices = () => request('/api/invoices');
+export const fetchInvoices = () => request('/api/v2/invoices');
 
 export const submitMove = (data) =>
-  request('/api/move', { method: 'POST', body: JSON.stringify(data) });
+  request('/api/v2/move', { method: 'POST', body: JSON.stringify(data) });
 
 export const saveUser = (data) =>
-  request('/api/user', { method: 'PUT', body: JSON.stringify(data) });
+  request('/api/v2/user', { method: 'PUT', body: JSON.stringify(data) });
 
 const refreshAccessToken = async () => {
   try {
     const res = await fetch('/api/v2/auth/refresh', {
       method: 'POST',
-      credentials: 'include',
     });
 
     if (!res.ok) {
@@ -46,7 +55,13 @@ const refreshAccessToken = async () => {
     }
 
     const data = await res.json();
-    setAccessToken(data.token);
+    const token = data?.access?.Token ?? data?.accessToken ?? data?.token;
+    if (typeof token !== 'string' || !token) {
+      setAccessToken(null);
+      return false;
+    }
+
+    setAccessToken(token);
     return true;
   } catch {
     setAccessToken(null);
