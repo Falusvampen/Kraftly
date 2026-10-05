@@ -145,9 +145,11 @@ jobs:
       - name: Röktest – går inloggningen genom proxyn?
         env:
           URL: ${{ vars.STAGING_URL }}
+          EMAIL: ${{ secrets.TEST_EMAIL }}
+          PASSWORD: ${{ secrets.TEST_PASSWORD }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
+          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"$EMAIL","password":"$PASSWORD"}'
           echo
           echo "✅ /api svarar via nginx med nyckeln från Render"
   deploy-production:
@@ -206,9 +208,11 @@ jobs:
         if: steps.hook.outputs.deployed == 'true'
         env:
           URL: ${{ vars.PROD_URL }}
+          EMAIL: ${{ secrets.TEST_EMAIL }}
+          PASSWORD: ${{ secrets.TEST_PASSWORD }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
+          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"$EMAIL","password":"$PASSWORD"}'
           echo
           if curl -fsS "$URL/config.js" | grep -q "norway: false"; then
             echo "✅ /api svarar och FEATURE_NORWAY är av i produktion"
