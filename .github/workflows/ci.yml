@@ -145,11 +145,16 @@ jobs:
       - name: Röktest – går inloggningen genom proxyn?
         env:
           URL: ${{ vars.STAGING_URL }}
-          EMAIL: ${{ secrets.TEST_EMAIL }}
-          PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          EMAIL: ${{ secrets.STAGING_EMAIL }}
+          PASSWORD: ${{ secrets.STAGING_PASSWORD }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"$EMAIL","password":"$PASSWORD"}'
+          # jq skapar en perfekt formaterad JSON-sträng med dina variabler
+          JSON_DATA=$(jq -n --arg em "$EMAIL" --arg pw "$PASSWORD" '{email: $em, password: $pw}')
+
+          curl -fsS -X POST "$URL/api/v2/auth/login" \
+            -H 'Content-Type: application/json' \
+            -d "$JSON_DATA"
           echo
           echo "✅ /api svarar via nginx med nyckeln från Render"
   deploy-production:
@@ -208,11 +213,15 @@ jobs:
         if: steps.hook.outputs.deployed == 'true'
         env:
           URL: ${{ vars.PROD_URL }}
-          EMAIL: ${{ secrets.TEST_EMAIL }}
-          PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          EMAIL: ${{ secrets.PROD_EMAIL }}
+          PASSWORD: ${{ secrets.PROD_PASSWORD }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"$EMAIL","password":"$PASSWORD"}'
+          JSON_DATA=$(jq -n --arg em "$EMAIL" --arg pw "$PASSWORD" '{email: $em, password: $pw}')
+
+          curl -fsS -X POST "$URL/api/v2/auth/login" \
+            -H 'Content-Type: application/json' \
+            -d "$JSON_DATA"
           echo
           if curl -fsS "$URL/config.js" | grep -q "norway: false"; then
             echo "✅ /api svarar och FEATURE_NORWAY är av i produktion"
