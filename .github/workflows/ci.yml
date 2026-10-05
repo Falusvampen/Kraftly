@@ -147,7 +147,7 @@ jobs:
           URL: ${{ vars.STAGING_URL }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
+          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
           echo
           echo "✅ /api svarar via nginx med nyckeln från Render"
   deploy-production:
@@ -208,7 +208,7 @@ jobs:
           URL: ${{ vars.PROD_URL }}
         run: |
           URL="${URL%/}"
-          curl -fsS -X POST "$URL/api/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
+          curl -fsS -X POST "$URL/api/v2/auth/login" -H 'Content-Type: application/json' -d '{"email":"a@b.se","password":"x"}'
           echo
           if curl -fsS "$URL/config.js" | grep -q "norway: false"; then
             echo "✅ /api svarar och FEATURE_NORWAY är av i produktion"
