@@ -1,6 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { cleanup, render, screen } from '@testing-library/vue';
 import '@testing-library/jest-dom/vitest';
+import { createRouter, createMemoryHistory } from 'vue-router';
+
+const dummyRouter = createRouter({
+  history: createMemoryHistory(),
+  routes: [{ path: '/', component: { template: '<div></div>' } }],
+});
 
 const renderApp = async (env) => {
   vi.resetModules();
@@ -9,7 +15,7 @@ const renderApp = async (env) => {
 
   return render(App, {
     global: {
-      mocks: { $route: { path: '/login' } },
+      plugins: [dummyRouter],
       stubs: {
         RouterLink: { template: '<a><slot /></a>' },
         RouterView: true,
