@@ -1,7 +1,7 @@
 // API client for Kraftly "Mina sidor"
 import { getAccessToken, setAccessToken } from './token';
 
-const request = async (path, options = {}) => {
+const request = async (path, options = {}, allowRefresh = true) => {
   const token = getAccessToken();
   const res = await fetch(path, {
     ...options,
@@ -12,11 +12,11 @@ const request = async (path, options = {}) => {
       ...options.headers,
     },
   });
-  if (res.status === 401) {
+  if (res.status === 401 && allowRefresh && !path.includes('/auth/login')) {
     const refreshed = await refreshAccessToken();
 
     if (refreshed) {
-      return request(path, options, true);
+      return request(path, options, false);
     }
   }
   if (!res.ok) {

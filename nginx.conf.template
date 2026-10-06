@@ -5,20 +5,35 @@ server {
   root /usr/share/nginx/html;
   index index.html;
 
+  include /etc/nginx/snippets/security-headers.conf;
+
   location / {
     try_files $uri $uri/ /index.html;
   }
 
   location /assets/ {
+    include /etc/nginx/snippets/security-headers.conf;
     add_header Cache-Control "public, max-age=31536000, immutable";
   }
 
-  location = /index.html { add_header Cache-Control "no-cache"; }
-  location = /config.js { add_header Cache-Control "no-cache"; }
-  location = /version.txt { add_header Cache-Control "no-cache"; }
+  location = /index.html {
+    include /etc/nginx/snippets/security-headers.conf;
+    add_header Cache-Control "no-cache";
+  }
+
+  location = /config.js {
+    include /etc/nginx/snippets/security-headers.conf;
+    add_header Cache-Control "no-cache";
+  }
+
+  location = /version.txt {
+    include /etc/nginx/snippets/security-headers.conf;
+    add_header Cache-Control "no-cache";
+  }
 
   # /api skickas vidare – och nyckeln läggs på här, på servern.
   location /api/ {
+    include /etc/nginx/snippets/security-headers.conf;
     proxy_pass ${API_URL}/api/;
     proxy_set_header X-Api-Key ${API_KEY};
     proxy_ssl_server_name on;   # krävs när API_URL är https
