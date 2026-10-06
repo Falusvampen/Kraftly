@@ -54,7 +54,7 @@
 Delar av nedanstående har vi missat:
 Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln försvinner ur repot (git filter-repo) – och skriv i docs/deploy.md varför det inte ersätter rotationen · rollback-workflow med valfri sha (övning 2 A) · miljöbanner via config.js (övning 2 B – krävs i M5).Vi behöver komma ikapp här.
 
-M5
+# M5
 
 - [x] Produktion skild från staging: en egen Render-tjänst på egen adress, APP_ENV=production, ingen miljöbanner. Samma image som staging: version.txt visar samma sha på båda efter en deploy
 - [x] Godkännande före prod: GitHub-miljön production har required reviewers (hela teamet) och Prevent self-review. Jobbet deploy-production har needs: på staging-jobbet, deployar ghcr.io/…:<sha> via hook, väntar på /version.txt och gör ett röktest som blir rött om flaggan är på i prod
@@ -66,3 +66,15 @@ M5
       sha 4320c01ef20f5a1bb2ab79d210862bb15df0487a
 - [x] docs/scaling.md enligt mallen från workshopen: era mätvärden (autocannon, tre anrop, req/s + p99, kommandot ni körde), vad de säger om flaskhalsen, vad ni gjorde, varför (inte) Kubernetes, och regeln för flagga kontra rollback med tider. Granskas muntligt på avstämningen
 - [x] Adresserna: prod-raden i miljötabellen i docs/deploy.md och prod-adressen i README. En rad var
+
+# M6
+
+- [x] Riktig inloggning: LoginView loggar in mot /api/v2/auth/login med e-post och lösenord, visar ett felmeddelande vid fel uppgifter (role="alert"), och den fejkade localStorage-flaggan är borttagen ur hela koden
+- [x] Access token i minnet, inte i localStorage: ett test eller en kort motivering i docs/security.md som visar att token inte hamnar i webblagring. Refresh sköts mot cookien; en omladdning loggar inte ut
+- [x] Skyddade routes + skyddat API: en route guard skickar utloggade till /login, och ni har visat (curl eller ett test) att /api/v2/invoices svarar 401 utan token – guarden är UX, API:t är skyddet
+- [x] Ingen kund ser en annans data: fakturor/förbrukning väljs ur token. Om ni bygger en variant med ?customerNo= eller liknande: visa att den ignoreras (A01/IDOR)
+- [x] OWASP-genomgång i docs/security.md: en rad per relevant kategori (minst A01, A02, A05, A07) med vad ni hittade och vad ni gjorde. Använd mallen (Canvas-sidan OWASP-checklista)
+- [x] CORS låst: API-anropen går genom er egen proxy (samma origin). Om något behöver riktig CORS: en uttrycklig lista över origins, aldrig * med cookies. Skriv motiveringen i docs/security.md
+- [x] Content Security Policy + säkerhetsheaders: CSP (minst default-src 'self'; script-src 'self') plus X-Content-Type-Options, X-Frame-Options/frame-ancestors satt i nginx. curl -I på er staging som visar dem, klistrat i docs/security.md
+- [x] Ett beslutsdokument docs/decisions/tokenlagring.md: var access token lagras, alternativen (localStorage / cookie / minne), och varför ni valde som ni valde
+- [x] Testerna gröna (inklusive minst ett nytt test på auth-flödet eller att ett skyddat anrop kräver token) · logg i docs/log.md
