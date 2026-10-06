@@ -1,6 +1,13 @@
 <template>
   <div>
-    <img src="../assets/hero.webp" class="hero" />
+    <img
+      src="@/assets/hero.webp"
+      class="hero"
+      width="1200"
+      height="600"
+      fetchpriority="high"
+      alt="Hero image"
+    />
     <h1 v-if="userStore.user">Hej {{ userStore.user.name.split(' ')[0] }}!</h1>
     <h1 v-else>Hej!</h1>
 
@@ -44,7 +51,7 @@
 </template>
 
 <script setup>
-// Dashboard. Got a bit big, clean up some day /M
+// Dashboard. Got a bit big, clean up some day/M
 import _ from 'lodash';
 import { computed, onMounted, onBeforeUnmount } from 'vue';
 import { useUserStore } from '@/stores/user';
@@ -64,7 +71,7 @@ const currentPrice = computed(() =>
   consumptionStore.data ? consumptionStore.data.pricePerKwh : '–',
 );
 
-// debounce on resize, chart.js redraws itself but we log a bit /J
+// debounce on resize, chart.js redraws itself but we log a bit  /J
 const onResize = _.debounce(() => console.log('resize', window.innerWidth), 300);
 
 onMounted(() => {
@@ -84,20 +91,26 @@ const showTips = () => {
 
 <style scoped>
 .hero {
+  display: block;
   width: 100%;
+  max-width: 1200px;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 18px;
+  object-fit: cover;
 }
 .stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+
 .stat-label {
   font-size: 13px;
   color: #7c8698;
   margin-bottom: 6px;
 }
+
 .stat-value {
   font-size: 26px;
   font-weight: 700;
