@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      src="../assets/hero.webp"
+      src="@/assets/hero.webp"
       class="hero"
       width="1200"
       height="600"
@@ -91,11 +91,14 @@ const showTips = () => {
 
 <style scoped>
 .hero {
+  display: block;
   width: 100%;
+  max-width: 1200px;
+  height: auto;
   border-radius: 10px;
   margin-bottom: 18px;
+  object-fit: cover;
 }
-
 .stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

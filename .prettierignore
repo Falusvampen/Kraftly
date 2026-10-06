@@ -10,3 +10,11 @@ coverage/
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
