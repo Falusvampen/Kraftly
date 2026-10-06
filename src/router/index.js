@@ -21,12 +21,15 @@ const router = createRouter({
 /* UX guard only.
  Real authorization is enforced by the API.
  This redirects unauthenticated users to /login. */
-router.beforeEach(function (to) {
+router.beforeEach((to) => {
+  const token = getAccessToken();
+
   if (to.path === '/login') {
+    if (token) {
+      return '/';
+    }
     return true;
   }
-
-  const token = getAccessToken();
 
   if (!token) {
     return '/login';
@@ -34,5 +37,4 @@ router.beforeEach(function (to) {
 
   return true;
 });
-
 export default router;

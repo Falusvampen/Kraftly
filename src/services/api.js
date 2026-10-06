@@ -1,16 +1,24 @@
 // API client for Kraftly "Mina sidor"
-import { setAccessToken } from './token';
-import { getAccessToken } from './token';
+import { getAccessToken, setAccessToken } from './token';
 
-const request = async (path, options = {}) => {
+const request = async (path, options = {}, allowRefresh = true) => {
+  const token = getAccessToken();
   const res = await fetch(path, {
     ...options,
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${getAccessToken()}`,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...options.headers,
     },
   });
+  if (res.status === 401 && allowRefresh && !path.includes('/auth/login')) {
+    const refreshed = await refreshAccessToken();
+
+    if (refreshed) {
+      return request(path, options, false);
+    }
+  }
   if (!res.ok) {
     throw new Error('API error ' + res.status);
   }
@@ -47,7 +55,13 @@ const refreshAccessToken = async () => {
     }
 
     const data = await res.json();
-    setAccessToken(data.token);
+    const token = data?.access?.Token ?? data?.accessToken ?? data?.token;
+    if (typeof token !== 'string' || !token) {
+      setAccessToken(null);
+      return false;
+    }
+
+    setAccessToken(token);
     return true;
   } catch {
     setAccessToken(null);
