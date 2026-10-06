@@ -1,3 +1,70 @@
+# 2026-10-06
+
+Gjort:
+Vi kör ett par möten för att checka av att allt är gjort.
+Löser en del problem som uppstått på aktuella PR.
+Vi ser över security.md och Owasp samt DoD.
+Tom skriver milestones.
+Vi har fixat vår Hero-picture
+
+Grönt:
+Spår 1
+Spår 2
+Spår 3
+
+Kvar:
+Sätta M6 tagg
+
+Teamets reflektion:
+
+# 2026-10-05
+
+Gjort:
+Vi går tillsammans igenom våra PR och löser merge conflicts och smoketest.
+Spår 1 Louise
+Spår 2 Tom
+Spår 3 är påbörjat av Axel och snart klart.
+Vi skriver dokumentation som vi delat upp.
+
+Grönt:
+Spår 1
+Spår 2
+
+Kvar:
+Spår 3 och delar av DoD
+
+Teamets reflektion:
+Vi avsätter tid för egen studietid tis förmiddag. Morgonmötet senareläggs därmed.
+
+# 2026-10-02
+
+Gjort:
+Spår 1 av Louise, delvis klart och PR gjord, den fastnade i smoketest som till slut löstes. Inlogg och felmeddelande fungerar men inte refresh.
+Spår 2 är påbörjat av Tom.
+Vi satt tillsammans online och löste problemet med testet som stoppade PR #85
+
+Grönt:
+PR #85 grön.
+
+Kvar:
+Samtliga spår och DoD är kvar.
+
+Teamets reflektion:
+
+# 2026-10-01
+
+Gjort:
+Spår 1 påbörjades av Louise
+Spår 2 påbörjades av Tom
+
+Grönt:
+Inga nya PR gjorda ännu
+
+Kvar:
+Samtliga spår och DoD är kvar.
+
+Teamets reflektion:
+
 # 2026-09-29
 
 Gjort:
