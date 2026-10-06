@@ -11,6 +11,7 @@ app.use(createPinia());
 const initializeApp = async () => {
   await initAuth();
   app.use(router);
+  await router.isReady();
   app.mount('#app');
 };
 
