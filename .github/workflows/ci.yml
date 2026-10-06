@@ -162,14 +162,34 @@ jobs:
           URL: ${{ vars.STAGING_URL }}
         run: |
           URL="${URL%/}"
+
+          # 1. Kontrollera headers på root-sidan (/)
+          echo "Kontrollerar headers på / ..."
           HEADERS=$(curl -fsS -I "$URL/")
           echo "$HEADERS" | grep -iq "content-security-policy" || { echo "::error::CSP saknas på /"; exit 1; }
-          echo "$HEADERS" | grep -iq "x-content-type-options" || { echo "::error::X-Content-Type-Options saknas"; exit 1; }
-          echo "$HEADERS" | grep -iq "x-frame-options" || { echo "::error::X-Frame-Options saknas"; exit 1; }
+          echo "$HEADERS" | grep -iq "x-content-type-options" || { echo "::error::X-Content-Type-Options saknas på /"; exit 1; }
+          echo "$HEADERS" | grep -iq "x-frame-options" || { echo "::error::X-Frame-Options saknas på /"; exit 1; }
 
-          ASSETS_HEADERS=$(curl -fsS -I "$URL/assets/")
-          echo "$ASSETS_HEADERS" | grep -iq "content-security-policy" || { echo "::error::CSP saknas på /assets/"; exit 1; }
-          echo "$ASSETS_HEADERS" | grep -iq "cache-control" || { echo "::error::Cache-Control saknas på /assets/"; exit 1; }
+          # 2. Hämta en faktisk statisk fil från HTML för att testa /assets/
+          echo "Hämtar en statisk resurs från index.html ..."
+          INDEX=$(curl -fsS "$URL/")
+
+          # Hitta första resursen under /assets/ oavsett om den är omgiven av citattecken
+          ASSET_PATH=$(printf '%s' "$INDEX" | grep -oE '(/assets/|assets/)[a-zA-Z0-9_.-]+\.(js|css)' | head -n 1)
+
+          if [ -z "$ASSET_PATH" ]; then
+            echo "::error::Hittade ingen .js- eller .css-fil under /assets/ i index.html"
+            exit 1
+          fi
+
+          # Se till att sökvägen börjar med /
+          ASSET_PATH="/${ASSET_PATH#/}"
+          echo "Testar headers mot resurs: $URL$ASSET_PATH"
+
+          # 3. Kontrollera headers på den statiska filen
+          ASSETS_HEADERS=$(curl -fsS -I "$URL$ASSET_PATH")
+          echo "$ASSETS_HEADERS" | grep -iq "content-security-policy" || { echo "::error::CSP saknas på $ASSET_PATH"; exit 1; }
+          echo "$ASSETS_HEADERS" | grep -iq "cache-control" || { echo "::error::Cache-Control saknas på $ASSET_PATH"; exit 1; }
 
           echo "✅ Alla säkerhetsheaders verifierade på staging!"
   deploy-production:
