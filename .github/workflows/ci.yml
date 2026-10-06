@@ -157,6 +157,21 @@ jobs:
             -d "$JSON_DATA"
           echo
           echo "✅ /api svarar via nginx med nyckeln från Render"
+      - name: Röktest – säkerhetsheaders på plats?
+        env:
+          URL: ${{ vars.STAGING_URL }}
+        run: |
+          URL="${URL%/}"
+          HEADERS=$(curl -fsS -I "$URL/")
+          echo "$HEADERS" | grep -iq "content-security-policy" || { echo "::error::CSP saknas på /"; exit 1; }
+          echo "$HEADERS" | grep -iq "x-content-type-options" || { echo "::error::X-Content-Type-Options saknas"; exit 1; }
+          echo "$HEADERS" | grep -iq "x-frame-options" || { echo "::error::X-Frame-Options saknas"; exit 1; }
+
+          ASSETS_HEADERS=$(curl -fsS -I "$URL/assets/")
+          echo "$ASSETS_HEADERS" | grep -iq "content-security-policy" || { echo "::error::CSP saknas på /assets/"; exit 1; }
+          echo "$ASSETS_HEADERS" | grep -iq "cache-control" || { echo "::error::Cache-Control saknas på /assets/"; exit 1; }
+
+          echo "✅ Alla säkerhetsheaders verifierade på staging!"
   deploy-production:
     name: Deploy → produktion
     runs-on: ubuntu-latest
