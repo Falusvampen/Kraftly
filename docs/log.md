@@ -1,3 +1,22 @@
+# 2026-10-06
+
+Gjort:
+Vi kör ett par möten för att checka av att allt är gjort.
+Löser en del problem som uppstått på aktuella PR.
+Vi ser över security.md och Owasp samt DoD.
+Tom skriver milestones.
+Vi har fixat vår Hero-picture
+
+Grönt:
+Spår 1
+Spår 2
+Spår 3
+
+Kvar:
+Sätta M6 tagg
+
+Teamets reflektion:
+
 # 2026-10-05
 
 Gjort:
