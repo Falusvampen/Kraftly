@@ -76,7 +76,7 @@ jobs:
         env:
           E2E_SERVER: preview
           API_KEY: e2e-testnyckel
-  
+
   lighthouse:
     name: Prestandabudget (Lighthouse)
     runs-on: ubuntu-latest
