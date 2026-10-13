@@ -85,6 +85,8 @@ Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln
 [] Minst tre optimeringar med före/efter-mätning i docs/performance.md, varav minst en som förbättrar LCP eller CLS på dashboarden och minst en som minskar mängden JavaScript. Varje optimering har en egen PR, länkad i dokumentet
 [x] Dashboarden inom gränserna: LCP under 2,5 s och CLS under 0,1 (lokalt produktionsbygge, iPhone 12 Pro, Fast 4G, cache av) – siffrorna i dokumentet
 [x] Prestandabudget i CI: lighthouserc.json med minst LCP, CLS och JavaScript-storlek som "error", och jobbet Prestandabudget (Lighthouse) körs på varje PR. Länk till en grön körning i docs/milestones.md
-[ ] Budgeten stoppar: jobbet är en required status check på main, och publish väntar på det (needs). JavaScript-taket ligger strax över er faktiska siffra, motiverat i dokumentet
-[ ] Testerna gröna – och om ni bytt import av ett bibliotek som mockas i testerna, är mocken flyttad med (inga getContext-fel i testloggen)
+[x] Budgeten stoppar: jobbet är en required status check på main, och publish väntar på det (needs). JavaScript-taket ligger strax över er faktiska siffra, motiverat i dokumentet
+[x] Testerna gröna – och om ni bytt import av ett bibliotek som mockas i testerna, är mocken flyttad med (inga getContext-fel i testloggen)
 [x] Ett beslutsdokument docs/decisions/rendering.md: SPA, SSR (Nuxt) eller SSG för portalen – jämförelse, beslut, och när beslutet ska omprövas. Beslutet och när vi ska ompröva är inte ifyllt.
+
+Länk till grön körning lighthouse: https://github.com/Falusvampen/Kraftly/actions/runs/38381735724/job/115243998566
