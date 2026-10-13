@@ -1,3 +1,76 @@
+# 2026-10-13
+
+Gjort:
+Kort standup på förmiddagen.
+Alla spår, detaljer som ska lösas
+Louise jobbar ikapp med delar av dokumentationen. Övriga får komplettera med sina uppgifter.
+
+Grönt:
+Spår 1
+Spår 2?
+Spår 3?
+
+Kvar:
+Dokumentation för DoD.
+Sätta M7 tagg
+
+Teamets reflektion:
+Lite stress då Louise och Tom arbetat med Lia-uppgift fre, lör och sön.
+Samt studera inför provet.
+Axel sjuk men löser sin uppgift.
+
+# 2026-10-12
+
+Gjort:
+
+Axel gör spår 2
+Tom gör spår 3
+
+Grönt:
+Spår 1
+
+Kvar:
+Spår 2 och 3 samt dokumentation för DoD.
+Sätta M7 tagg
+
+Teamets reflektion:
+Lite stress då Louise och Tom arbetat med Lia-uppgift fre, lör och sön.
+Samt studera inför provet.
+Axel sjuk men löser sin uppgift.
+
+# 2026-10-09
+
+Gjort:
+Kort stand-up på förmiddagen
+Louise gör klart Spår 1 med div för diagrammet.
+<https://github.com/Falusvampen/Kraftly/pull/98>
+
+Grönt:
+Spår 1
+
+Kvar:
+Spår 2 och 3 samt dokumentation för DoD.
+Sätta M7 tagg
+
+Teamets reflektion:
+Louise och Tom har fått en LIA-uppgift som ska lämnas in senaste mån-lunch
+Axel erbjuder sig att göra resterande spår.
+
+# 2026-10-08
+
+Gjort:
+Louise har redan delvis spår 1 och börjar därför med spår 2. Discardar sedan allt då det failar på tre test.
+
+Grönt:
+Hero bilden betydligt mindre.
+
+Kvar:
+Samtliga spår samt dokumentation för DoD.
+Sätta M7 tagg
+
+Teamets reflektion:
+Enbart Louise närvarande i skolan.
+
 # 2026-10-06
 
 Gjort:

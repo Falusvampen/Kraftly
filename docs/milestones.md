@@ -78,3 +78,13 @@ Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln
 - [x] Content Security Policy + säkerhetsheaders: CSP (minst default-src 'self'; script-src 'self') plus X-Content-Type-Options, X-Frame-Options/frame-ancestors satt i nginx. curl -I på er staging som visar dem, klistrat i docs/security.md
 - [x] Ett beslutsdokument docs/decisions/tokenlagring.md: var access token lagras, alternativen (localStorage / cookie / minne), och varför ni valde som ni valde
 - [x] Testerna gröna (inklusive minst ett nytt test på auth-flödet eller att ett skyddat anrop kräver token) · logg i docs/log.md
+
+# M7
+
+[x] Mätmetoden står skriven: verktyg och inställningar i docs/performance.md (produktionsbygget, enhetsläge, nätverksstrypning, cache av, median av flera körningar) – samma för före och efter
+[] Minst tre optimeringar med före/efter-mätning i docs/performance.md, varav minst en som förbättrar LCP eller CLS på dashboarden och minst en som minskar mängden JavaScript. Varje optimering har en egen PR, länkad i dokumentet
+[x] Dashboarden inom gränserna: LCP under 2,5 s och CLS under 0,1 (lokalt produktionsbygge, iPhone 12 Pro, Fast 4G, cache av) – siffrorna i dokumentet
+[x] Prestandabudget i CI: lighthouserc.json med minst LCP, CLS och JavaScript-storlek som "error", och jobbet Prestandabudget (Lighthouse) körs på varje PR. Länk till en grön körning i docs/milestones.md
+[ ] Budgeten stoppar: jobbet är en required status check på main, och publish väntar på det (needs). JavaScript-taket ligger strax över er faktiska siffra, motiverat i dokumentet
+[ ] Testerna gröna – och om ni bytt import av ett bibliotek som mockas i testerna, är mocken flyttad med (inga getContext-fel i testloggen)
+[x] Ett beslutsdokument docs/decisions/rendering.md: SPA, SSR (Nuxt) eller SSG för portalen – jämförelse, beslut, och när beslutet ska omprövas. Beslutet och när vi ska ompröva är inte ifyllt.
