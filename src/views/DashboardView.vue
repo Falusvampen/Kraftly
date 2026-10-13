@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      src="../assets/hero.webp"
+      src="@/assets/hero.webp"
       class="hero"
       width="1200"
       height="600"
