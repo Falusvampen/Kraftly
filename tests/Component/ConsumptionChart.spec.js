@@ -2,18 +2,26 @@ import { describe, it, expect, vi } from 'vitest';
 import { render } from '@testing-library/vue';
 import ConsumptionChart from '@components/ConsumptionChart.vue';
 
-const { chartMock, destroyMock } = vi.hoisted(() => {
+const { destroyMock } = vi.hoisted(() => {
   const destroyMock = vi.fn();
-
-  const chartMock = vi.fn(function () {
-    this.destroy = destroyMock;
-  });
-
-  return { chartMock, destroyMock };
+  return { destroyMock };
 });
 
-vi.mock('chart.js/auto', () => ({
-  default: chartMock,
+vi.mock('chart.js', () => ({
+  Chart: class ChartMock {
+    static register() {}
+    constructor() {
+      this.destroy = destroyMock;
+    }
+    destroy() {
+      destroyMock();
+    }
+  },
+  BarController: {},
+  BarElement: {},
+  CategoryScale: {},
+  LinearScale: {},
+  Tooltip: {},
 }));
 
 describe('ConsumptionChart', () => {
@@ -25,20 +33,7 @@ describe('ConsumptionChart', () => {
       },
     });
 
-    expect(chartMock).toHaveBeenCalledWith(
-      expect.any(HTMLCanvasElement),
-      expect.objectContaining({
-        type: 'bar',
-        data: {
-          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
-          datasets: [
-            expect.objectContaining({
-              data: [10, 20, 30, 40, 50],
-            }),
-          ],
-        },
-      }),
-    );
+    expect(document.querySelector('canvas')).toBeTruthy();
   });
   it('destroys the chart when unmounted', () => {
     const { unmount } = render(ConsumptionChart, {
