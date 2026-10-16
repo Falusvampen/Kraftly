@@ -17,7 +17,10 @@
     "test": "vitest",
     "test:run": "vitest run",
     "e2e:cy": "start-server-and-test \"npm run api\" http://localhost:4000/healthz \"npm run dev\" http://localhost:5173 \"cypress run\"",
-    "e2e:ci": "start-server-and-test \"npm run api\" http://localhost:4000/healthz \"npm run preview -- --port 5173\" http://localhost:5173 \"cypress run\""
+    "e2e:ci": "start-server-and-test \"npm run api\" http://localhost:4000/healthz \"npm run preview -- --port 5173\" http://localhost:5173 \"cypress run\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "test:a11y": "vitest run a11y"
   },
   "dependencies": {
     "chart.js": "^4.4.7",
@@ -28,6 +31,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/vue3-vite": "^10.6.1",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/user-event": "^14.6.6",
     "@testing-library/vue": "^8.1.0",
@@ -40,10 +46,12 @@
     "eslint-plugin-vue": "^10.10.0",
     "globals": "^17.11.0",
     "husky": "^9.1.7",
+    "jest-axe": "^11.0.0",
     "jsdom": "^30.0.1",
     "lint-staged": "^17.4.1",
     "prettier": "3.9.6",
     "start-server-and-test": "^3.0.12",
+    "storybook": "^10.6.1",
     "vite": "^6.0.7",
     "vitest": "^4.1.11"
   },
