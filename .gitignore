@@ -5,3 +5,6 @@ dist
 # rust server grejen
 target/
 .lighthouseci/
+#storybook
+storybook-static/
+*storybook.log
