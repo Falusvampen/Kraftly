@@ -6,9 +6,20 @@
         <span class="field-label">Kundnummer</span>
         <span>{{ store.user.customerNo }}</span>
       </div>
-      <input type="text" v-model="name" />
-      <input type="text" v-model="email" />
-      <input type="text" v-model="address" />
+      <BaseInput id="profile-name" label="Namn" v-model="name" autocomplete="name" />
+      <BaseInput
+        id="profile-email"
+        label="E-postadress"
+        type="email"
+        v-model="email"
+        autocomplete="email"
+      />
+      <BaseInput
+        id="profile-address"
+        label="Adress"
+        v-model="address"
+        autocomplete="street-address"
+      />
       <AppButton color="#12b76a" @click="save">Spara ändringar</AppButton>
       <button class="button-secondary" style="margin-left: 10px" @click="reset">Ångra</button>
     </div>
@@ -18,6 +29,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import AppButton from '@components/AppButton.vue';
+import BaseInput from '@components/BaseInput.vue';
 import { useUserStore } from '@/stores/user';
 
 const store = useUserStore();

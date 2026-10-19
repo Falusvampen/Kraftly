@@ -40,24 +40,25 @@ Tab, Shift+Tab, Enter och mellanslag användes.
 **Testare:** Kodläsning och lokal webbläsarkontroll  
 **Miljö/URL:** Lokal utvecklingsserver, `http://localhost:5173`
 
-| Vy             | Vad vi testade                                                                                    | Före                                                                                                                                                                       | Efter |
-| -------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
-| Inloggning     | Tab genom e-post, lösenord och `Logga in`; Shift+Tab tillbaka; aktivering med Enter               | E-post → lösenord → `Logga in` går att nå. Enter på knappen kan aktivera inloggning. Fälten saknar synliga labels och har bara placeholder som namn.                       | —     |
-| Översikt       | Tab genom navigation och innehåll; försök att nå `Fler spartips`; aktivering med Enter/mellanslag | Navigationslänkarna får fokus. `Fler spartips` får inte fokus eftersom den är en `<div @click>` och kan därför inte aktiveras med Enter eller mellanslag.                  | —     |
-| Fakturor       | Tab genom navigation och fakturarader; försök att nå `Ladda ner`; aktivering med Enter/mellanslag | Navigationslänkarna får fokus. `Ladda ner` får inte fokus eftersom den är en `<div @click>` och kan därför inte aktiveras med Enter eller mellanslag.                      | —     |
-| Flyttanmälan   | Tab genom adress, postnummer, ort, datum, avtal och submit-knapp; Shift+Tab tillbaka              | Fälten, avtalslistan och submit-knappen går att nå i ordning. Fälten saknar kopplade labels och avtalslistan saknar label. Shift+Tab går bakåt genom samma kontroller.     | —     |
-| Mina uppgifter | Tab genom namn, e-post, adress, `Spara ändringar` och `Ångra`; Shift+Tab tillbaka                 | Namn → e-post → adress → `Spara ändringar` → `Ångra` går att nå. Knapparna är fokuserbara, men textfälten saknar kopplade labels. Shift+Tab går bakåt genom samma ordning. | —     |
-| Utloggning     | Tab genom navigationen; försök att nå och aktivera `Logga ut`                                     | `Logga ut` får inte fokus eftersom den är en `<span @click>`. Den kan därför inte aktiveras med enbart tangentbord.                                                        | —     |
+| Vy             | Vad vi testade                                                                                    | Före                                                                                                                                                                       | Efter                                                                                                                   |
+| -------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Inloggning     | Tab genom e-post, lösenord och `Logga in`; Shift+Tab tillbaka; aktivering med Enter               | E-post → lösenord → `Logga in` går att nå. Enter på knappen kan aktivera inloggning. Fälten saknar synliga labels och har bara placeholder som namn.                       | Labels och unika id:n är tillagda i koden. Ny manuell tangentbordsgenomgång efter ändringen återstår.                   |
+| Översikt       | Tab genom navigation och innehåll; försök att nå `Fler spartips`; aktivering med Enter/mellanslag | Navigationslänkarna får fokus. `Fler spartips` får inte fokus eftersom den är en `<div @click>` och kan därför inte aktiveras med Enter eller mellanslag.                  | —                                                                                                                       |
+| Fakturor       | Tab genom navigation och fakturarader; försök att nå `Ladda ner`; aktivering med Enter/mellanslag | Navigationslänkarna får fokus. `Ladda ner` får inte fokus eftersom den är en `<div @click>` och kan därför inte aktiveras med Enter eller mellanslag.                      | —                                                                                                                       |
+| Flyttanmälan   | Tab genom adress, postnummer, ort, datum, avtal och submit-knapp; Shift+Tab tillbaka              | Fälten, avtalslistan och submit-knappen går att nå i ordning. Fälten saknar kopplade labels och avtalslistan saknar label. Shift+Tab går bakåt genom samma kontroller.     | Labels och unika id:n är tillagda för alla fält och avtalet. Ny manuell tangentbordsgenomgång efter ändringen återstår. |
+| Mina uppgifter | Tab genom namn, e-post, adress, `Spara ändringar` och `Ångra`; Shift+Tab tillbaka                 | Namn → e-post → adress → `Spara ändringar` → `Ångra` går att nå. Knapparna är fokuserbara, men textfälten saknar kopplade labels. Shift+Tab går bakåt genom samma ordning. | Labels, unika id:n och autocomplete-attribut är tillagda. Ny manuell tangentbordsgenomgång efter ändringen återstår.    |
+| Utloggning     | Tab genom navigationen; försök att nå och aktivera `Logga ut`                                     | `Logga ut` får inte fokus eftersom den är en `<span @click>`. Den kan därför inte aktiveras med enbart tangentbord.                                                        | —                                                                                                                       |
 
 Efter att spåren har mergats fylls kolumnen **Efter** i med en ny genomgång.
 
 ## Vad vi åtgärdade
 
-| Brist                                          | Var                                        | Hittades med                                                                                   | Åtgärd (PR) |
-| ---------------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------- | ----------- |
-| Fält med bara placeholder                      | `LoginView`, `ProfileView`, `MoveForm`     | Kodläsning före M8; efterkontroll ska ange axe-regel-id eller `getByLabelText` där det används | —           |
-| Klickbar `div` eller `span` som inte får fokus | `DashboardView`, `InvoicesView`, `App.vue` | Tangentbordet och kodläsning; axe-resultat kompletteras efter testkörning                      | —           |
-| Tabellrubriker utan `scope`                    | `InvoicesView`                             | Kodläsning                                                                                     | —           |
+| Brist                                          | Var                                        | Hittades med                                                              | Åtgärd (PR)                                                                                                        |
+| ---------------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Fält med bara placeholder                      | `LoginView`, `ProfileView`, `MoveForm`     | Kodläsning före M8; `getByLabelText` i formulärtesterna                   | Labels och id:n tillagda i `LoginView`, `ProfileView` och `MoveForm`; testerna använder label-baserade selektorer. |
+| Login-vyn saknade tillgänglighetstest          | `src/views/LoginView.a11y.test.js`         | `axe(container)` och `getByLabelText`                                     | Axe-test och label-test tillagda på denna gren.                                                                    |
+| Klickbar `div` eller `span` som inte får fokus | `DashboardView`, `InvoicesView`, `App.vue` | Tangentbordet och kodläsning; axe-resultat kompletteras efter testkörning | —                                                                                                                  |
+| Tabellrubriker utan `scope`                    | `InvoicesView`                             | Kodläsning                                                                | —                                                                                                                  |
 
 ## Vad axe inte hittar
 
@@ -101,15 +102,37 @@ före ändringen.
 | Flyttanmälan   | Ny adress, postnummer, ort, inflyttningsdatum | `src/components/MoveForm.vue` | `BaseInput` används utan `label` och `id`                   |
 | Flyttanmälan   | Avtal                                         | `src/components/MoveForm.vue` | `<select>` saknar label och id                              |
 
+## Verifierade kommandon på denna gren
+
+```text
+npm run test:a11y
+2 testfiler passerade, 3 tester passerade
+
+npx vitest run src/views/LoginView.a11y.test.js tests/Component/MoveForm.test.js tests/Component/MoveFormView.test.js
+3 testfiler passerade, 6 tester passerade
+
+npm run test:run -- --reporter=dot
+15 testfiler passerade, 42 tester passerade
+
+npm run lint -- src/views/LoginView.vue src/views/ProfileView.vue src/components/MoveForm.vue src/views/LoginView.a11y.test.js tests/Component/MoveForm.test.js tests/Component/MoveFormView.test.js cypress/e2e/smoke.cy.js cypress/e2e/invoices.cy.js
+godkänd
+
+npm run build
+godkänd
+
+npm run build-storybook
+godkänd; Storybook 10.6.1 byggdes. Vite rapporterade endast chunk-size-varningar.
+```
+
 ## Bevis som ska kompletteras
 
 Följande fylls i efter att verktygen och spåren är klara:
 
 - före och efter för kontrastvärden från Storybooks Accessibility-flik
 - `Violations` per ändrad story före och efter
-- sista raderna från `npm run test:a11y` och `npm run build-storybook`
 - sista raderna från `npm run test:run` före taggning
 - efterresultat från tangentbordsgenomgången
+- `KButton`-story och dess `Violations 0`
 
 ## Kända brister
 
