@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-// config from a starter template, seems to work /M
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
@@ -18,10 +17,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     resolve: {
       alias: {
-        // Generellt alias för hela src-katalogen
         '@': fileURLToPath(new URL('./src', import.meta.url)),
-
-        // Specifika alias för dina underkataloger
         '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
         '@utils': fileURLToPath(new URL('./src/utils', import.meta.url)),
       },
@@ -36,6 +32,7 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       environment: 'jsdom',
+      setupFiles: ['./tests/setup.js'], // Kopplar setup-filen med jest-axe matchers
     },
   };
 });
