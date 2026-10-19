@@ -2,20 +2,45 @@
   <form @submit.prevent="handleSubmit" class="card" style="max-width: 560px">
     <p style="margin-bottom: 14px">Fyll i uppgifterna nedan så flyttar vi ditt elavtal.</p>
 
-    <BaseInput v-model="form.address" placeholder="Ny adress" :error="errors.address" />
-
-    <BaseInput v-model="form.zip" placeholder="Postnummer" :error="errors.zip" />
-
-    <BaseInput v-model="form.city" placeholder="Ort" :error="errors.city" />
+    <BaseInput
+      id="move-address"
+      label="Ny adress"
+      v-model="form.address"
+      placeholder="Ny adress"
+      :error="errors.address"
+    />
 
     <BaseInput
+      id="move-zip"
+      label="Postnummer"
+      v-model="form.zip"
+      placeholder="Postnummer"
+      :error="errors.zip"
+    />
+
+    <BaseInput
+      id="move-city"
+      label="Ort"
+      v-model="form.city"
+      placeholder="Ort"
+      :error="errors.city"
+    />
+
+    <BaseInput
+      id="move-date"
+      label="Inflyttningsdatum"
       v-model="form.date"
       placeholder="Inflyttningsdatum (ÅÅÅÅ-MM-DD)"
       :error="errors.date"
     />
 
     <div class="input-group">
-      <select v-model="form.contract" :class="{ 'input-error': errors.contract }">
+      <label for="move-contract" class="input-label">Avtal</label>
+      <select
+        id="move-contract"
+        v-model="form.contract"
+        :class="{ 'input-error': errors.contract }"
+      >
         <option disabled value="">Välj avtal</option>
         <option>Rörligt pris</option>
         <option>Fast pris 1 år</option>
@@ -71,6 +96,13 @@ const handleSubmit = () => {
 <style scoped>
 .input-group {
   margin-bottom: 12px;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 select {

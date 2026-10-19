@@ -90,3 +90,12 @@ Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln
 [x] Ett beslutsdokument docs/decisions/rendering.md: SPA, SSR (Nuxt) eller SSG för portalen – jämförelse, beslut, och när beslutet ska omprövas. Beslutet och när vi ska ompröva är inte ifyllt.
 
 Länk till grön körning lighthouse: https://github.com/Falusvampen/Kraftly/actions/runs/38381735724/job/115243998566
+
+# M8
+
+- [ ] Storybook med Accessibility-tillägg och axe-test är installerade och verifierade på `main`
+- [ ] `KButton` ersätter knappvarianter och icke-interaktiva klickytor; story och test finns
+- [ ] Alla fält i inloggning, profil och flyttanmälan har kopplad `<label for>` och unikt `id`
+- [ ] Fokusring, `lang`, titel, alt-texter, kontrast och fakturatabell är kontrollerade
+- [ ] `docs/accessibility.md` innehåller före/efter, fyndmetod, kontrast, story-violations och tangentbordsgenomgång
+- [ ] Utdrag från `npm run test:a11y`, `npm run build-storybook` och `npm run test:run` är inklistrade efter merge

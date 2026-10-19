@@ -34,10 +34,10 @@ describe('MoveFormView.vue', () => {
     render(MoveFormView);
 
     // Fyll i formuläret med hjälp av userEvent och screen från @testing-library/vue. Vi använder placeholder-texten för att hitta rätt input-fält och fylla i dem med testdata.
-    await user.type(screen.getByPlaceholderText('Ny adress'), 'Solvägen 12');
-    await user.type(screen.getByPlaceholderText('Postnummer'), '80267');
-    await user.type(screen.getByPlaceholderText('Ort'), 'Gävle');
-    await user.type(screen.getByPlaceholderText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), '2026-09-20');
+    await user.type(screen.getByLabelText('Ny adress'), 'Solvägen 12');
+    await user.type(screen.getByLabelText('Postnummer'), '80267');
+    await user.type(screen.getByLabelText('Ort'), 'Gävle');
+    await user.type(screen.getByLabelText('Inflyttningsdatum'), '2026-09-20');
     await user.selectOptions(screen.getByRole('combobox'), 'Rörligt pris');
 
     // Klicka på knappen "Skicka flyttanmälan" för att skicka formuläret. Vi använder screen.getByRole för att hitta knappen baserat på dess roll och namn.
