@@ -18,11 +18,11 @@ describe('MoveForm.vue', () => {
   it('renders all form controls and submit button', () => {
     render(MoveForm);
 
-    expect(screen.getByPlaceholderText('Ny adress')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Postnummer')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Ort')).toBeInTheDocument();
-    expect(screen.getByPlaceholderText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)')).toBeInTheDocument();
-    expect(screen.getByRole('combobox')).toBeInTheDocument();
+    expect(screen.getByLabelText('Ny adress')).toBeInTheDocument();
+    expect(screen.getByLabelText('Postnummer')).toBeInTheDocument();
+    expect(screen.getByLabelText('Ort')).toBeInTheDocument();
+    expect(screen.getByLabelText('Inflyttningsdatum')).toBeInTheDocument();
+    expect(screen.getByLabelText('Avtal')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /skicka flyttanmälan/i })).toBeInTheDocument();
   });
 
@@ -45,10 +45,10 @@ describe('MoveForm.vue', () => {
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
     const { emitted } = render(MoveForm);
 
-    await user.type(screen.getByPlaceholderText('Ny adress'), 'Solvägen 12');
-    await user.type(screen.getByPlaceholderText('Postnummer'), '80267');
-    await user.type(screen.getByPlaceholderText('Ort'), 'Gävle');
-    await user.type(screen.getByPlaceholderText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), '2026-09-20');
+    await user.type(screen.getByLabelText('Ny adress'), 'Solvägen 12');
+    await user.type(screen.getByLabelText('Postnummer'), '80267');
+    await user.type(screen.getByLabelText('Ort'), 'Gävle');
+    await user.type(screen.getByLabelText('Inflyttningsdatum'), '2026-09-20');
     await user.selectOptions(screen.getByRole('combobox'), 'Rörligt pris');
 
     await user.click(screen.getByRole('button', { name: /skicka flyttanmälan/i }));

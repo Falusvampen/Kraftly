@@ -19,8 +19,8 @@ describe('fakturor', () => {
     ]).as('invoices');
 
     cy.visit('/login');
-    cy.get('input[placeholder="E-postadress"]').type('test@example.com');
-    cy.get('input[placeholder="Lösenord"]').type('kraftly-test');
+    cy.get('input[autocomplete="username"]').type('test@example.com');
+    cy.get('input[autocomplete="current-password"]').type('kraftly-test');
     cy.contains('button', 'Logga in').click();
     cy.wait('@login');
     cy.contains('a', 'Fakturor').click();
