@@ -23,7 +23,13 @@
               <StatusChip :status="invoice.status" />
             </td>
             <td>
-              <KButton variant="text" @click="downloadInvoice(invoice)">Ladda ner</KButton>
+              <KButton
+                variant="text"
+                :aria-label="`Ladda ner faktura ${invoice.id}`"
+                @click="downloadInvoice(invoice)"
+              >
+                Ladda ner
+              </KButton>
             </td>
           </tr>
         </tbody>
