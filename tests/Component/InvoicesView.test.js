@@ -25,9 +25,9 @@ describe('InvoicesView', () => {
   it('ger den tomma rubriken och nedladdningen tillgängliga namn', async () => {
     render(InvoicesView);
     expect(await screen.findByRole('columnheader', { name: 'Åtgärd' })).toBeInTheDocument();
-    expect(await screen.findByText('Ladda ner', { exact: false })).toHaveTextContent(
-      'Ladda ner faktura F-1001',
-    );
+    expect(
+      await screen.findByRole('button', { name: 'Ladda ner faktura F-1001' }),
+    ).toBeInTheDocument();
     expect(screen.getByRole('cell', { name: 'F-1001', exact: true })).toBeInTheDocument();
   });
 });
