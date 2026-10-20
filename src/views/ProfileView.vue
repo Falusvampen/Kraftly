@@ -20,15 +20,15 @@
         v-model="address"
         autocomplete="street-address"
       />
-      <AppButton color="#12b76a" @click="save">Spara ändringar</AppButton>
-      <button class="button-secondary" style="margin-left: 10px" @click="reset">Ångra</button>
+      <KButton variant="primary" @click="save">Spara ändringar</KButton>
+      <KButton variant="secondary" style="margin-left: 10px" @click="reset">Ångra</KButton>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import AppButton from '@components/AppButton.vue';
+import KButton from '@components/KButton.vue';
 import BaseInput from '@components/BaseInput.vue';
 import { useUserStore } from '@/stores/user';
 

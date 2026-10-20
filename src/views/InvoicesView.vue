@@ -23,7 +23,7 @@
               <StatusChip :status="invoice.status" />
             </td>
             <td>
-              <div class="download" @click="downloadInvoice(invoice)">Ladda ner</div>
+              <KButton variant="text" @click="downloadInvoice(invoice)">Ladda ner</KButton>
             </td>
           </tr>
         </tbody>
@@ -36,6 +36,7 @@
 import { ref, onMounted } from 'vue';
 import { fetchInvoices } from '@/services/api';
 import StatusChip from '@components/StatusChip.vue';
+import KButton from '@components/KButton.vue';
 
 const invoices = ref([]);
 

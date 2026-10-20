@@ -17,7 +17,7 @@
         type="password"
         autocomplete="current-password"
       />
-      <button class="btn" style="width: 100%" @click="handleLogin">Logga in</button>
+      <KButton block @click="handleLogin">Logga in</KButton>
       <p v-if="errorMessage" role="alert">
         {{ errorMessage }}
       </p>
@@ -32,6 +32,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import BaseInput from '@components/BaseInput.vue';
+import KButton from '@components/KButton.vue';
 import { login } from '@/services/api';
 import { setAccessToken } from '@/services/token';
 
