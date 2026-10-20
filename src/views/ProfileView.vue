@@ -60,7 +60,8 @@ onMounted(async () => {
   padding: 8px 0 14px;
   font-size: 14px;
 }
+
 .field-label {
-  color: #7c8698;
+  color: #5c6679;
 }
 </style>
