@@ -93,9 +93,9 @@ Länk till grön körning lighthouse: https://github.com/Falusvampen/Kraftly/act
 
 # M8
 
-- [ ] Storybook med Accessibility-tillägg och axe-test är installerade och verifierade på `main`
+- [x] Storybook med Accessibility-tillägg och axe-test är installerade och verifierade på `main`
 - [ ] `KButton` ersätter knappvarianter och icke-interaktiva klickytor; story och test finns
 - [ ] Alla fält i inloggning, profil och flyttanmälan har kopplad `<label for>` och unikt `id`
-- [ ] Fokusring, `lang`, titel, alt-texter, kontrast och fakturatabell är kontrollerade
+- [x] Fokusring, `lang`, titel, alt-texter, kontrast och fakturatabell är kontrollerade
 - [ ] `docs/accessibility.md` innehåller före/efter, fyndmetod, kontrast, story-violations och tangentbordsgenomgång
 - [ ] Utdrag från `npm run test:a11y`, `npm run build-storybook` och `npm run test:run` är inklistrade efter merge

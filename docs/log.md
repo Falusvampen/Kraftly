@@ -1,3 +1,40 @@
+# 2026-10-20
+
+Gjort:
+Kort standup på förmiddagen.
+Alla spår klara men vi ska se över om/vad som saknas.
+Louise fyller i en del dokumentation.
+
+Grönt:
+Spår 1
+Spår 2
+Spår 3
+
+Kvar:
+Dokumentation
+Sätta M8 tagg
+
+Teamets reflektion:
+
+# 2026-10-19
+
+Gjort:
+Kort standup på förmiddagen. Vissa spår är inte mergade ännu.
+Axel- Spår 1
+Tom- Spår 2
+Louise- Spår 3
+
+Grönt:
+Spår 1
+Spår 2
+Spår 3
+
+Kvar:
+Dokumentation
+Sätta M8 tagg
+
+Teamets reflektion:
+
 # 2026-10-13
 
 Gjort:
