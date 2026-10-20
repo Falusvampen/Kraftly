@@ -47,7 +47,7 @@
         Elpriset är som högst mellan 07–09 och 17–20. Flytta tvätt och diskmaskin till natten så kan
         du sänka din kostnad med upp till 15 %.
       </p>
-      <div class="btn" style="margin-top: 12px" @click="showTips">Fler spartips</div>
+      <KButton style="margin-top: 12px" @click="showTips">Fler spartips</KButton>
     </div>
   </div>
 </template>
@@ -60,6 +60,7 @@ import { useConsumptionStore } from '@/stores/consumption';
 import ConsumptionChart from '@components/ConsumptionChart.vue';
 import NorwayNotice from '@components/NorwayNotice.vue';
 import { debounce } from '@/utils/debounce.js';
+import KButton from '@components/KButton.vue';
 
 const userStore = useUserStore();
 const consumptionStore = useConsumptionStore();
