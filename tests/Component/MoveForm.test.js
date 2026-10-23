@@ -21,7 +21,7 @@ describe('MoveForm.vue', () => {
     expect(screen.getByLabelText('Ny adress')).toBeInTheDocument();
     expect(screen.getByLabelText('Postnummer')).toBeInTheDocument();
     expect(screen.getByLabelText('Ort')).toBeInTheDocument();
-    expect(screen.getByLabelText('Inflyttningsdatum')).toBeInTheDocument();
+    expect(screen.getByLabelText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)')).toBeInTheDocument();
     expect(screen.getByLabelText('Avtal')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /skicka flyttanmälan/i })).toBeInTheDocument();
   });
@@ -48,7 +48,7 @@ describe('MoveForm.vue', () => {
     await user.type(screen.getByLabelText('Ny adress'), 'Solvägen 12');
     await user.type(screen.getByLabelText('Postnummer'), '80267');
     await user.type(screen.getByLabelText('Ort'), 'Gävle');
-    await user.type(screen.getByLabelText('Inflyttningsdatum'), '2026-09-20');
+    await user.type(screen.getByLabelText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), '2026-09-20');
     await user.selectOptions(screen.getByRole('combobox'), 'Rörligt pris');
 
     await user.click(screen.getByRole('button', { name: /skicka flyttanmälan/i }));
