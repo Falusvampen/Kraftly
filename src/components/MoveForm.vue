@@ -49,14 +49,14 @@
       <p v-if="errors.contract" class="error-message">{{ errors.contract }}</p>
     </div>
 
-    <BaseButton type="submit">Skicka flyttanmälan</BaseButton>
+    <KButton type="submit">Skicka flyttanmälan</KButton>
     <p class="hint" style="margin-top: 8px">Anmälan måste göras senast 14 dagar före flytt</p>
   </form>
 </template>
 
 <script setup>
 import { reactive } from 'vue';
-import BaseButton from '@components/BaseButton.vue';
+import KButton from '@components/KButton.vue';
 import BaseInput from '@components/BaseInput.vue';
 import validateMove from '@utils/validateMove.js';
 

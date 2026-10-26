@@ -5,12 +5,12 @@
       <table>
         <thead>
           <tr>
-            <th>Faktura</th>
-            <th>Period</th>
-            <th>Belopp</th>
-            <th>Förfaller</th>
-            <th>Status</th>
-            <th></th>
+            <th scope="col">Faktura</th>
+            <th scope="col">Period</th>
+            <th scope="col">Belopp</th>
+            <th scope="col">Förfaller</th>
+            <th scope="col">Status</th>
+            <th scope="col"><span class="visually-hidden">Åtgärd</span></th>
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,13 @@
               <StatusChip :status="invoice.status" />
             </td>
             <td>
-              <div class="download" @click="downloadInvoice(invoice)">Ladda ner</div>
+              <KButton
+                variant="text"
+                :aria-label="`Ladda ner faktura ${invoice.id}`"
+                @click="downloadInvoice(invoice)"
+              >
+                Ladda ner
+              </KButton>
             </td>
           </tr>
         </tbody>
@@ -36,6 +42,7 @@
 import { ref, onMounted } from 'vue';
 import { fetchInvoices } from '@/services/api';
 import StatusChip from '@components/StatusChip.vue';
+import KButton from '@components/KButton.vue';
 
 const invoices = ref([]);
 
