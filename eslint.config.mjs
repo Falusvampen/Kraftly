@@ -42,6 +42,19 @@ export default defineConfig([
     files: ['cypress/**/*.{js,ts,jsx,tsx}'],
     extends: [pluginCypress.configs.recommended],
   },
+  {
+    files: ['scripts/**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+
+    rules: {
+      'no-console': 'off', // Tillåt console.log i scripts
+      'no-undef': 'off', // Tillåt att använda process.env i scripts
+    },
+  },
 
   pluginVue.configs['flat/essential'],
   eslintConfigPrettier,
