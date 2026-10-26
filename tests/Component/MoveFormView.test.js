@@ -37,7 +37,7 @@ describe('MoveFormView.vue', () => {
     await user.type(screen.getByLabelText('Ny adress'), 'Solvägen 12');
     await user.type(screen.getByLabelText('Postnummer'), '80267');
     await user.type(screen.getByLabelText('Ort'), 'Gävle');
-    await user.type(screen.getByLabelText('Inflyttningsdatum'), '2026-09-20');
+    await user.type(screen.getByLabelText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), '2026-09-20');
     await user.selectOptions(screen.getByRole('combobox'), 'Rörligt pris');
 
     // Klicka på knappen "Skicka flyttanmälan" för att skicka formuläret. Vi använder screen.getByRole för att hitta knappen baserat på dess roll och namn.
