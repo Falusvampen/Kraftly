@@ -3,20 +3,8 @@
     <div class="card login-card">
       <img src="@/assets/logo-dark.svg" class="login-logo" alt="Kraftly" />
       <h1>Logga in på Mina sidor</h1>
-      <BaseInput
-        id="login-email"
-        label="E-postadress"
-        v-model="email"
-        type="email"
-        autocomplete="username"
-      />
-      <BaseInput
-        id="login-password"
-        label="Lösenord"
-        v-model="password"
-        type="password"
-        autocomplete="current-password"
-      />
+      <KField v-model="email" label="E-postadress" type="email" autocomplete="username" />
+      <KField v-model="password" label="Lösenord" type="password" autocomplete="current-password" />
       <KButton block @click="handleLogin">Logga in</KButton>
       <p v-if="errorMessage" role="alert">
         {{ errorMessage }}
@@ -31,7 +19,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import BaseInput from '@components/BaseInput.vue';
+import KField from '@components/KField.vue';
 import KButton from '@components/KButton.vue';
 import { login } from '@/services/api';
 import { setAccessToken } from '@/services/token';

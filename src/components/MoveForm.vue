@@ -2,37 +2,21 @@
   <form @submit.prevent="handleSubmit" class="card" style="max-width: 560px">
     <p style="margin-bottom: 14px">Fyll i uppgifterna nedan så flyttar vi ditt elavtal.</p>
 
-    <BaseInput
-      id="move-address"
-      label="Ny adress"
+    <KField
       v-model="form.address"
-      placeholder="Ny adress"
+      label="Ny adress"
+      autocomplete="street-address"
       :error="errors.address"
     />
-
-    <BaseInput
-      id="move-zip"
-      label="Postnummer"
+    <KField
       v-model="form.zip"
-      placeholder="Postnummer"
+      label="Postnummer"
+      inputmode="numeric"
+      autocomplete="postal-code"
       :error="errors.zip"
     />
-
-    <BaseInput
-      id="move-city"
-      label="Ort"
-      v-model="form.city"
-      placeholder="Ort"
-      :error="errors.city"
-    />
-
-    <BaseInput
-      id="move-date"
-      label="Inflyttningsdatum"
-      v-model="form.date"
-      placeholder="Inflyttningsdatum (ÅÅÅÅ-MM-DD)"
-      :error="errors.date"
-    />
+    <KField v-model="form.city" label="Ort" autocomplete="address-level2" :error="errors.city" />
+    <KField v-model="form.date" label="Inflyttningsdatum (ÅÅÅÅ-MM-DD)" :error="errors.date" />
 
     <div class="input-group">
       <label for="move-contract" class="input-label">Avtal</label>
@@ -57,7 +41,7 @@
 <script setup>
 import { reactive } from 'vue';
 import KButton from '@components/KButton.vue';
-import BaseInput from '@components/BaseInput.vue';
+import KField from '@components/KField.vue';
 import validateMove from '@utils/validateMove.js';
 
 const emit = defineEmits(['submit']);

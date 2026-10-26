@@ -4,9 +4,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "start": "concurrently \"npm run api\" \"npm run dev\"",
-    "build": "vite build",
+    "dev": "node init && vite",
+    "start": "node init && concurrently \"npm run api\" \"npm run dev\"",
+    "build": "node init && vite build",
     "preview": "vite preview",
     "api": "node mock-api/server.js",
     "lint": "eslint",
@@ -19,7 +19,7 @@
     "e2e:cy": "start-server-and-test \"npm run api\" http://localhost:4000/healthz \"npm run dev\" http://localhost:5173 \"cypress run\"",
     "e2e:ci": "start-server-and-test \"npm run api\" http://localhost:4000/healthz \"npm run preview -- --port 5173\" http://localhost:5173 \"cypress run\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "node init && storybook build",
     "test:a11y": "vitest run a11y"
   },
   "dependencies": {
@@ -30,6 +30,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
     "@eslint/js": "^10.0.1",
     "@pinia/testing": "^0.1.7",
     "@storybook/addon-a11y": "^10.6.1",
