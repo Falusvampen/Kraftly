@@ -40,7 +40,6 @@ if (!diffPath) {
   console.error('Användning: node scripts/ai-review.mjs <diff-fil>');
   process.exit(1);
 }
-console.log('api key: ', process.env.ANTHROPIC_API_KEY);
 if (!process.env.ANTHROPIC_API_KEY) {
   say('_AI-granskning hoppades över: ingen API-nyckel._');
   process.exit(0);
