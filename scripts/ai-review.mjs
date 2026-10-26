@@ -18,7 +18,6 @@ import Anthropic from '@anthropic-ai/sdk';
 const MODEL = process.env.AI_REVIEW_MODEL || 'claude-opus-5-5';
 const MAX_TOKENS = 2000; // tak för svaret, tänkandet inräknat
 const MAX_DIFF_CHARS = 60_000; // ~15 000 tokens; större diffar trunkeras (workflowen hoppar redan över > 1 500 rader)
-console.log(MODEL, MAX_TOKENS, MAX_DIFF_CHARS);
 const SYSTEM_PROMPT = `Du granskar pull requests i Kraftly Mina sidor, en kundportal för ett elbolag byggd i Vue 3 (Composition API, <script setup>, Pinia, Vue Router). Du får diffen för en PR och svarar med granskningspunkter på svenska.
 
 Prioritera i den här ordningen:
