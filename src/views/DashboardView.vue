@@ -8,7 +8,7 @@
       alt=""
       fetchpriority="high"
     />
-    <h1 v-if="userStore.user">Hej {{ userStore.user.name.split(' ')[0] }}!</h1>
+    <h1 v-if="userStore.user">Hej {{ userStore.user.name.split(' ')[0] }}!!!</h1>
     <h1 v-else>Hej!</h1>
 
     <div class="stats">
