@@ -1,5 +1,5 @@
 # AI-granskning av pull requests (vecka 10, M9)
-# Varje PR mot main: diffen under src/ skickas till en språkmodell, svaret postas som kommentar på PR:en.
+# Varje PR mot main: diffen under src/ och tests/ skickas till en språkmodell, svaret postas som kommentar på PR:en.
 # Kommentaren är ett FÖRSLAG. Jobbet är aldrig en required check och blir aldrig rött på grund
 # av modellen – skriptet avslutar alltid med 0. Regler och utvärdering: docs/ai-in-pipeline.md.
 name: AI-granskning
@@ -33,7 +33,7 @@ jobs:
         with:
           fetch-depth: 0 # hela historiken – annars finns inte main att jämföra med
 
-      # Diffen mot målgrenen, bara src/: lockfiler och konfiguration är brus och kostar tokens.
+      # Diffen mot målgrenen, bara src/ och tests/: lockfiler och konfiguration är brus och kostar tokens.
       # Tre punkter (...) = det som ändrats på PR-grenen sedan den gick ut från main.
       # Över 1 500 rader granskas inte: kvaliteten rasar med storleken, och tokens kostar pengar.
       - name: Diffen
@@ -41,14 +41,14 @@ jobs:
         env:
           BASE_REF: ${{ github.base_ref }} # via env, inte inklistrat i skriptet
         run: |
-          git diff "origin/$BASE_REF...HEAD" -- 'src/**' > diff.patch
+          git diff "origin/$BASE_REF...HEAD" -- 'src/**' 'tests/**' > diff.patch
           RADER=$(wc -l < diff.patch)
-          echo "Diffen under src/ är $RADER rader"
+          echo "Diffen under src/ och tests/ är $RADER rader"
           if [ "$RADER" -gt 1500 ]; then
             echo "_AI-granskning hoppades över: diffen är $RADER rader (tak 1 500). Dela upp PR:en._" > review.md
             echo "skip=true" >> "$GITHUB_OUTPUT"
           elif [ "$RADER" -eq 0 ]; then
-            echo "_AI-granskning hoppades över: inga ändringar under src/._" > review.md
+            echo "_AI-granskning hoppades över: inga ändringar under src/ eller tests/._" > review.md
             echo "skip=true" >> "$GITHUB_OUTPUT"
           fi
 
