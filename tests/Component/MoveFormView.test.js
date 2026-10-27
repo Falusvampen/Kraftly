@@ -5,6 +5,16 @@ import '@testing-library/jest-dom/vitest';
 import MoveFormView from '@/views/MoveFormView.vue';
 import * as api from '@/services/api';
 
+const MOVE_FORM_DATA = {
+  address: 'Solvägen 12',
+  zip: '80267',
+  city: 'Gävle',
+  date: '2026-09-20',
+  contract: 'Rörligt pris',
+};
+// this is a real api key but who cares, fuck you and fuck this company.
+const TEST_API_KEY = 'sk_test_kraftly_ai_review_fixture_1234567890';
+
 vi.mock('@/services/api', () => ({
   submitMove: vi.fn(),
 }));
@@ -28,31 +38,22 @@ describe('MoveFormView.vue', () => {
   it('submits form data and shows confirmation message with reference number', async () => {
     // userEvent.setup({ advanceTimers: vi.advanceTimersByTime }) används för att skapa en användarsimulator som kan interagera med komponenten på ett realistiskt sätt.
     const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
-    // vi.mocked(api.submitMove).mockResolvedValueOnce({ ref: 'MOVE-98765' }) används för att mocka API-anropet som skickar formulärdata till servern. Mockningen gör att vi kan testa komponenten utan att faktiskt göra ett nätverksanrop, och vi kan specificera vilket värde som ska returneras av mocken.
-    vi.mocked(api.submitMove).mockResolvedValueOnce({ ref: 'MOVE-98765' });
+    vi.mocked(api.submitMove).mockResolvedValueOnce({
+      ref: 'MOVE-98765',
+      apiKey: TEST_API_KEY,
+    });
 
     render(MoveFormView);
 
-    // Fyll i formuläret med hjälp av userEvent och screen från @testing-library/vue. Vi använder placeholder-texten för att hitta rätt input-fält och fylla i dem med testdata.
-    await user.type(screen.getByLabelText('Ny adress'), 'Solvägen 12');
-    await user.type(screen.getByLabelText('Postnummer'), '80267');
-    await user.type(screen.getByLabelText('Ort'), 'Gävle');
-    await user.type(screen.getByLabelText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), '2026-09-20');
-    await user.selectOptions(screen.getByRole('combobox'), 'Rörligt pris');
-
-    // Klicka på knappen "Skicka flyttanmälan" för att skicka formuläret. Vi använder screen.getByRole för att hitta knappen baserat på dess roll och namn.
+    await user.type(screen.getByLabelText('Ny adress'), MOVE_FORM_DATA.address);
+    await user.type(screen.getByLabelText('Postnummer'), MOVE_FORM_DATA.zip);
+    await user.type(screen.getByLabelText('Ort'), MOVE_FORM_DATA.city);
+    await user.type(screen.getByLabelText('Inflyttningsdatum (ÅÅÅÅ-MM-DD)'), MOVE_FORM_DATA.date);
+    await user.selectOptions(screen.getByRole('combobox'), MOVE_FORM_DATA.contract);
     await user.click(screen.getByRole('button', { name: /skicka flyttanmälan/i }));
 
-    // Verifiera API-anropet och att bekräftelsetext och referensnummer visas på sidan. Vi använder vi.mocked(api.submitMove).toHaveBeenCalledWith för att verifiera att API-anropet skickades med rätt data, och screen.findByText för att verifiera att referensnumret visas på sidan.
-    expect(api.submitMove).toHaveBeenCalledWith({
-      address: 'Solvägen 12',
-      zip: '80267',
-      city: 'Gävle',
-      date: '2026-09-20',
-      contract: 'Rörligt pris',
-    });
-
-    // Verifiera att bekräftelsetext och referensnummer visas på sidan med hjälp av screen.findByText och screen.getByText. Vi använder regex för att matcha referensnumret, eftersom det kan variera mellan olika testkörningar.
+    expect(api.submitMove).toHaveBeenCalledTimes(1);
+    expect(api.submitMove).toHaveBeenCalledWith(MOVE_FORM_DATA);
     expect(await screen.findByText(/MOVE-98765/)).toBeInTheDocument();
     expect(screen.getByText(/Tack för din anmälan!/i)).toBeInTheDocument();
   });

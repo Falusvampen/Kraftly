@@ -1,3 +1,18 @@
+## 2026-10-23 · Boiler Room 3
+
+Gjort:  
+Louise har gjort punkt 2 och 3 samt Norway Notice stories. Samt denna log.
+Överlåter resten till övriga i teamet.
+Grönt:
+
+- PR <https://github.com/Falusvampen/Kraftly/pull/110>
+- PR <https://github.com/Falusvampen/Kraftly/pull/111>
+- Storybook jobbet: <https://github.com/Falusvampen/Kraftly/actions/runs/39943119515/job/120379142474>
+
+Kvar till M9-taggen tisdag: …
+En siffra från i dag: … (t.ex. tiden för Storybook-jobbet, eller kB per besök från co2-skriptet)
+Fastnat på: …
+
 # 2026-10-20
 
 Gjort:

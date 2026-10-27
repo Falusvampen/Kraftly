@@ -2,13 +2,13 @@
 // Läser en diff, ber en modell om granskningspunkter och skriver svaret som markdown till stdout.
 // Workflowen .github/workflows/ai-review.yml postar det som kommentar på PR:en.
 //
-//   Lokalt:  git diff main...min-gren -- 'src/**' > diff.patch
+//   Lokalt:  git diff main...min-gren -- 'src/**' 'tests/**' > diff.patch
 //            ANTHROPIC_API_KEY=… node scripts/ai-review.mjs diff.patch
 //
 // Medvetna val:
 // - Svaret är ett FÖRSLAG. Skriptet avslutar alltid med 0, även när något går fel –
 //   AI-steget får aldrig göra en PR röd. Varför: docs/ai-in-pipeline.md.
-// - Bara det workflowen skickar in (filer under src/). Lockfiler och konfiguration ger brus.
+// - Bara det workflowen skickar in (filer under src/ och tests/). Lockfiler och konfiguration ger brus.
 // - Nyckeln läses ur miljövariabeln ANTHROPIC_API_KEY (SDK:t gör det själv). Aldrig i repot.
 import { readFileSync } from 'node:fs';
 import Anthropic from '@anthropic-ai/sdk';
@@ -47,7 +47,7 @@ if (!process.env.ANTHROPIC_API_KEY) {
 
 const fullDiff = readFileSync(diffPath, 'utf8');
 if (!fullDiff.trim()) {
-  say('_Inga ändringar under `src/` i den här PR:en._');
+  say('_Inga ändringar under `src/` eller `tests/` i den här PR:en._');
   process.exit(0);
 }
 
