@@ -1,3 +1,19 @@
+## 2026-10-27
+
+Gjort:
+Axel och tom gjorde dokumentation för ai steget genom att refaktorisera några tester.
+
+## 2026-10-26
+
+Gjort:
+Axel och Tom kollade och mergade Louise PRs. Satte upp ai workflow steget, skapade koldioxid rapporten.
+
+Grönt:
+Spår 1
+Spår 2
+
+Kvar
+
 ## 2026-10-23 · Boiler Room 3
 
 Gjort:  
