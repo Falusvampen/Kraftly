@@ -13,9 +13,17 @@ för Team Volt, hösten 2026.
 - Flyttanmälan
 - Mock API för lokal utveckling
 
-## Kom igång (utan .env startar varken mock-API:t eller compose)
+## Kom igång (utan `.env` startar varken mock-API:t eller compose)
 
+```bash
 cp .env.example .env
+npm ci
+npm run start
+```
+
+Öppna sedan <http://localhost:5173/>. Kontrollera att mock-API:t svarar med
+<http://localhost:4000/healthz> och att portalen visar inloggningssidan. I
+PowerShell används `Copy-Item .env.example .env` i stället för `cp`.
 
 ## Staging
 
@@ -73,6 +81,19 @@ Mock API körs på <http://localhost:4000/>.
 | `npm run lint`              | Kör ESLint för att kontrollera kodkvaliteten.            |
 | `npm run test:run`          | Kör enhetstesterna en gång med Vitest.                   |
 | `npm run e2e:ci`            | Kör end-to-end-tester mot produktionsbygget med Cypress. |
+
+## Dokumentation
+
+| Fråga                                                              | Var svaret står                                                                                                                                                                                                        |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hur startar jag appen lokalt och hur vet jag att den fungerar?     | [Kom igång](#kom-igång), [testing](docs/testing.md)                                                                                                                                                                    |
+| Var bor hemligheterna och hur får jag dem?                         | [deploy](docs/deploy.md), [security](docs/security.md), `.env.example`                                                                                                                                                 |
+| Hur kommer en ändring till produktion och hur rullar man tillbaka? | [pipeline](docs/pipeline.md), [deploy](docs/deploy.md)                                                                                                                                                                 |
+| Varför ser arkitekturen ut så här?                                 | [architecture](docs/architecture.md), [beslutsindex](docs/decisions/README.md)                                                                                                                                         |
+| Vad är känt trasigt eller medvetet ogjort?                         | [readiness](docs/readiness.md), [known issues](docs/known-issues.md)                                                                                                                                                   |
+| Hur genomförs slutdemon?                                           | [demo](docs/demo.md)                                                                                                                                                                                                   |
+| Milstolpar och arbetslogg                                          | [milestones](docs/milestones.md), [log](docs/log.md)                                                                                                                                                                   |
+| Övrig drift, säkerhet och prestanda                                | [container](docs/container.md), [accessibility](docs/accessibility.md), [cache](docs/cache.md), [performance](docs/performance.md), [sustainability](docs/sustainability.md), [AI i pipelinen](docs/ai-in-pipeline.md) |
 
 ## Teknik
 

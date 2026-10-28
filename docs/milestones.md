@@ -81,13 +81,13 @@ Valfritt (räknas inte i DoD): skriv om git-historiken så att den gamla nyckeln
 
 # M7
 
-[x] Mätmetoden står skriven: verktyg och inställningar i docs/performance.md (produktionsbygget, enhetsläge, nätverksstrypning, cache av, median av flera körningar) – samma för före och efter
-[] Minst tre optimeringar med före/efter-mätning i docs/performance.md, varav minst en som förbättrar LCP eller CLS på dashboarden och minst en som minskar mängden JavaScript. Varje optimering har en egen PR, länkad i dokumentet
-[x] Dashboarden inom gränserna: LCP under 2,5 s och CLS under 0,1 (lokalt produktionsbygge, iPhone 12 Pro, Fast 4G, cache av) – siffrorna i dokumentet
-[x] Prestandabudget i CI: lighthouserc.json med minst LCP, CLS och JavaScript-storlek som "error", och jobbet Prestandabudget (Lighthouse) körs på varje PR. Länk till en grön körning i docs/milestones.md
-[x] Budgeten stoppar: jobbet är en required status check på main, och publish väntar på det (needs). JavaScript-taket ligger strax över er faktiska siffra, motiverat i dokumentet
-[x] Testerna gröna – och om ni bytt import av ett bibliotek som mockas i testerna, är mocken flyttad med (inga getContext-fel i testloggen)
-[x] Ett beslutsdokument docs/decisions/rendering.md: SPA, SSR (Nuxt) eller SSG för portalen – jämförelse, beslut, och när beslutet ska omprövas. Beslutet och när vi ska ompröva är inte ifyllt.
+- [x] Mätmetoden står skriven: verktyg och inställningar i docs/performance.md (produktionsbygget, enhetsläge, nätverksstrypning, cache av, median av flera körningar) – samma för före och efter
+- [ ] Minst tre optimeringar med före/efter-mätning i docs/performance.md, varav minst en som förbättrar LCP eller CLS på dashboarden och minst en som minskar mängden JavaScript. Varje optimering har en egen PR, länkad i dokumentet
+- [x] Dashboarden inom gränserna: LCP under 2,5 s och CLS under 0,1 (lokalt produktionsbygge, iPhone 12 Pro, Fast 4G, cache av) – siffrorna i dokumentet
+- [x] Prestandabudget i CI: lighthouserc.json med minst LCP, CLS och JavaScript-storlek som "error", och jobbet Prestandabudget (Lighthouse) körs på varje PR. Länk till en grön körning i docs/milestones.md
+- [x] Budgeten stoppar: jobbet är en required status check på main, och publish väntar på det (needs). JavaScript-taket ligger strax över er faktiska siffra, motiverat i dokumentet
+- [x] Testerna gröna – och om ni bytt import av ett bibliotek som mockas i testerna, är mocken flyttad med (inga getContext-fel i testloggen)
+- [x] Ett beslutsdokument docs/decisions/rendering.md: SPA, SSR (Nuxt) eller SSG för portalen – jämförelse, beslut, och när beslutet ska omprövas. Beslutet och när vi ska ompröva är inte ifyllt.
 
 Länk till grön körning lighthouse: https://github.com/Falusvampen/Kraftly/actions/runs/38381735724/job/115243998566
 
@@ -99,3 +99,17 @@ Länk till grön körning lighthouse: https://github.com/Falusvampen/Kraftly/act
 - [x] Fokusring, `lang`, titel, alt-texter, kontrast och fakturatabell är kontrollerade
 - [ ] `docs/accessibility.md` innehåller före/efter, fyndmetod, kontrast, story-violations och tangentbordsgenomgång
 - [ ] Utdrag från `npm run test:a11y`, `npm run build-storybook` och `npm run test:run` är inklistrade efter merge
+
+# M9
+
+- [x] Komponentbiblioteket i pipelinen: KField (label obligatorisk, useId(), aria-describedby för hjälptext och fel, aria-invalid) används i inloggning, profil och flyttanmälan, med story (Violations 0) och test · ett jobb Storybook i ci.yml (npm run build-storybook, artefakt), required check
+- [x] Ett AI-steg i pipelinen, utvärderat på riktiga PR:ar: ai-review.yml + scripts/ai-review.mjs postar granskningspunkter som kommentar, som förslag – aldrig required check. Utvärdering på minst tre av teamets riktiga PR:ar: tabellen träff / miss / oavgjord, två exempel (en träff, en miss, med citat) och regeln (när ni litar på den, vad ni gör när ni inte håller med) – allt i ett dokument, docs/ai-in-pipeline.md
+- [ ] Hållbarhetssiffran kopplad till M7 + ett etikfall: docs/sustainability.md med tabellen Före M7 / Efter M7 i kB per besök → kg CO2e per månad med scripts/co2.mjs (co2.js, Sustainable Web Design-modellen, svensk elmix, 40 000 kunder i månaden, antagandena utskrivna), tre meningar om metoden och vad som inte räknas · ett etikfall, "Chatta med Kraftly": situationen, ert beslut, varför, villkor
+
+# M10 – Dokumentation och feature freeze
+
+- [x] **Dokumentationen komplett:** README:s nya kollega-test, dokumentationstabell, [arkitekturskiss](architecture.md) och [beslutsindex](decisions/README.md) finns. Kvarvarande dokumentationsluckor är specificerade i [known-issues](known-issues.md).
+- [x] **Readiness och kända brister:** [readiness](readiness.md) har status och bevis på varje rad. Inga brister som är kritiska enligt M10-definitionen lämnas som kända brister.
+- [x] **Demo planerad:** [demo](demo.md) innehåller körschema, ansvar, produktionsflikar och reservplan. Generalrepetition återstår och ska loggas i [log](log.md) den 2/11 eller 3/11.
+- [ ] **Generalrepetition genomförd:** datum, längd och ändringar ska fyllas i efter genomförandet.
+- [ ] **M10-taggen:** sätt `M10` på `main` först när sista PR:en är mergad och pipeline, tester, build samt README:s dokumentlänkar är verifierade.
