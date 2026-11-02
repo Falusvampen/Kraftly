@@ -27,6 +27,19 @@ flowchart LR
     class LOCK fail;
 ```
 
+## Storybook
+
+Storybook körs som ett separat jobb i pipelinen, parallellt med de övriga
+kontrollerna. Jobbet installerar projektets beroenden och kör
+`npm run build-storybook`, som bygger komponentbiblioteket till en statisk
+webbplats i `storybook-static/`.
+
+Om någon story eller komponent inte kan byggas blir Storybook-jobbet rött.
+Den färdiga Storybook-byggnaden laddas därefter upp som en GitHub Actions-
+artefakt med namnet `storybook`. Artefakten kan laddas
+ner från workflow-körningen för att granska komponenterna utan att starta hela
+applikationen.
+
 ## Beslut 1 · Jobb: parallellt eller i serie?
 
 ### Vi har valt en sekventiell seriekoppling med fail-fast-arkitektur (quality ➔ build ➔ e2e).
