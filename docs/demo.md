@@ -7,11 +7,11 @@
 | Minut       | Vad                                             | Vem      | Vad som ska synas                                                                                            |
 | ----------- | ----------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | 0–1 (1:40s) | Vad vi tog över och vad det kostade beställaren | Axel     | README, tre dokumenterade brister, api lät alla komma in utan cors, nycklar hardcoded i kodbas, inga tester. |
-| 1–3         | Inloggning och skyddad dashboard                | Louise   | Login och aktuell förbrukning                                                                                |
-| 3–5         | Fakturor                                        | Tom      | Fakturaöversikt och status                                                                                   |
-| 5–7         | Flyttanmälan                                    | Axel     | Formulär, validering och bekräftelse                                                                         |
-| 7–9         | Vad vi inte gjorde                              | Tom Axel | [known issues](known-issues.md) och readiness                                                                |
-| 9–10        | Sammanfattning                                  | Louise   | Prod, version och en kundnytta                                                                               |
+| 1–3 (1:36)  | Inloggning och skyddad dashboard                | Louise   | Login och aktuell förbrukning                                                                                |
+| 3–5 (1:50)  | Fakturor                                        | Tom      | Fakturaöversikt och status                                                                                   |
+| 5–7 (1:41)  | Flyttanmälan                                    | Axel     | Formulär, validering och bekräftelse                                                                         |
+| 7–9 (2:15)  | Vad vi inte gjorde                              | Tom Axel | [known issues](known-issues.md) och readiness                                                                |
+| 9–10 (0:47) | Sammanfattning                                  | Louise   | Prod, version och en kundnytta                                                                               |
 | 10–15       | Frågor                                          | Alla     | –                                                                                                            |
 
 ## Förberedelser
