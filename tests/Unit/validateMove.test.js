@@ -55,7 +55,7 @@ describe('validateMove', () => {
   });
 
   it('should return an error when postal code is not exactly five digits', () => {
-    const form = { ...validForm, zip: '1234' };
+    const form = { ...validForm, zip: '12346' };
     const errors = validateMove(form);
 
     expect(errors.zip).toBe('Postnummer måste vara exakt fem siffror');
